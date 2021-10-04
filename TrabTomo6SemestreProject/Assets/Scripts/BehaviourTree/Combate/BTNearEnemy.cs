@@ -6,15 +6,17 @@ public class BTNearEnemy : BTNode
 {
     public override IEnumerator Run(BehaviourTree bt)
     {
+        NPC npc = bt.GetComponent<NPC>();
+        
         status = Status.FAILURE;
 
-        GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
+        GameObject[] enemies = GameObject.FindGameObjectsWithTag(npc.stats.targetTag);
 
         foreach (GameObject enemy in enemies)
         {
             if (enemy == bt.gameObject) continue;
             
-            if(Vector3.Distance(bt.transform.position, enemy.transform.position) < 10)
+            if(Vector3.Distance(bt.transform.position, enemy.transform.position) < npc.stats.spotEnemyDistance)
             {
                 status = Status.SUCCESS;
                 break;

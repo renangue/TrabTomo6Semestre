@@ -6,7 +6,9 @@ public class BTSpotEnemy : BTNode
 {
     public override IEnumerator Run(BehaviourTree bt)
     {
-        GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
+        NPC npc = bt.GetComponent<NPC>();
+        
+        GameObject[] enemies = GameObject.FindGameObjectsWithTag(npc.stats.targetTag);
 
         GameObject target = null;
 
@@ -25,8 +27,6 @@ public class BTSpotEnemy : BTNode
                 distance = dist;
             }    
         }
-
-        NPC npc = bt.GetComponent<NPC>();
 
         if (target)
         {

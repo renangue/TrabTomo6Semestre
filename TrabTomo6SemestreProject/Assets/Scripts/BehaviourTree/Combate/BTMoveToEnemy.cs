@@ -21,7 +21,7 @@ public class BTMoveToEnemy : BTNode
             }
             
             npc.transform.LookAt(npc.target.transform);
-            npc.transform.Translate(Vector3.forward * 4 * Time.deltaTime);
+            npc.transform.Translate(Vector3.forward * npc.stats.speed * Time.deltaTime);
             yield return null;
         }
 

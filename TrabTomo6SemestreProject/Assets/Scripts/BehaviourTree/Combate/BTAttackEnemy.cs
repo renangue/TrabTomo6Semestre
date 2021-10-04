@@ -21,7 +21,7 @@ public class BTAttackEnemy : BTNode
             GameObject clone = GameObject.Instantiate(npc.bullet, position, rotation);
             clone.GetComponent<Rigidbody>().AddForce(npc.transform.forward * 200);
             
-            yield return new WaitForSeconds(0.1f);
+            yield return new WaitForSeconds(npc.stats.fireRate);
 
             status = Status.SUCCESS;
         }

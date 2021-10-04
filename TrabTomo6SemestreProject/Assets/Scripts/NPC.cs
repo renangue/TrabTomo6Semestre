@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class NPC : MonoBehaviour
 {
-    public float life = 5;
+    public NPCStats stats;
+
+    private float life;
 
     public GameObject target;
 
@@ -12,34 +14,33 @@ public class NPC : MonoBehaviour
 
     void Start()
     {
-        BTInverter noNearEnemy = new BTInverter();
-        noNearEnemy.child = new BTNearEnemy();
-
-        BTSequenceParallel hunter = new BTSequenceParallel();
-        hunter.children.Add(noNearEnemy);
-        hunter.children.Add(new BTHunter());
-
-
-        BTSequence collect = new BTSequence();
-        collect.children.Add(new BTCollectable());
-        collect.children.Add(hunter);
-        collect.children.Add(new BTPickUpCollectable());
 
         BTSequence combat = new BTSequence();
         combat.children.Add(new BTNearEnemy());
         combat.children.Add(new BTSpotEnemy());
-        combat.children.Add(new BTMoveToEnemy());
-        combat.children.Add(new BTAttackEnemy());
-        combat.children.Add(new BTDodge());
+
+        BTSequence moveToExit = new BTSequence();
+        moveToExit.children.Add(new BTSpotExit());
+        moveToExit.children.Add(new BTMoveToExit());
 
         BTSelector selector = new BTSelector();
         selector.children.Add(combat);
-        selector.children.Add(collect);
+        selector.children.Add(moveToExit);
+
+        if (stats.type == NPCStats.Type.MEELE) combat.children.Add(new BTMoveToEnemy());
+        
+        else combat.children.Add(new BTAttackEnemy());
 
         BehaviourTree bt = GetComponent<BehaviourTree>();
-        bt.root = selector;
+
+        if (bt.CompareTag("Player")) bt.root = selector;
+
+        else bt.root = combat;
 
         StartCoroutine(bt.Begin());
+
+        life = stats.life;
+
     }
 
     private void OnTriggerEnter(Collider other)
