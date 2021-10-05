@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BTAttackEnemy : BTNode
+public class BTRangedAttackEnemy : BTNode
 {
     public override IEnumerator Run(BehaviourTree bt)
     {
@@ -19,7 +19,7 @@ public class BTAttackEnemy : BTNode
             Vector3 position = npc.transform.position + npc.transform.forward;
             Quaternion rotation = npc.transform.rotation;
             GameObject clone = GameObject.Instantiate(npc.bullet, position, rotation);
-            clone.GetComponent<Rigidbody>().AddForce(npc.transform.forward * 200);
+            clone.GetComponent<Rigidbody>().AddForce(npc.transform.forward * npc.stats.bulletSpeed);
             
             yield return new WaitForSeconds(npc.stats.fireRate);
 

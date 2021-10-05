@@ -24,11 +24,13 @@ public class BTMoveToExit : BTNode
         {
             target = exit;
         }
+
+        NPC npc = bt.GetComponent<NPC>();
         
         while (target)
         {
             bt.transform.LookAt(target.transform);
-            bt.transform.Translate(Vector3.forward * 4 * Time.deltaTime);
+            bt.transform.Translate(Vector3.forward * npc.stats.speed * Time.deltaTime);
 
             if (Vector3.Distance(bt.transform.position, target.transform.position) < 1)
             {

@@ -13,9 +13,10 @@ MonoBehaviour:
   m_Name: PlayerStats
   m_EditorClassIdentifier: 
   targetTag: Enemy
-  type: 1
+  type: 0
   life: 5
   speed: 5
   spotEnemyDistance: 10
   fireRate: 1
   bulletSpeed: 200
+  bullet: {fileID: 661769143325968779, guid: c8b902828ffcdc64a96d9cd4dd3abdd4, type: 3}

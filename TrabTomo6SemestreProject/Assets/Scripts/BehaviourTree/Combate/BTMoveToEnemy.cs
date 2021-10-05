@@ -14,7 +14,7 @@ public class BTMoveToEnemy : BTNode
 
         while (npc.target)
         {
-            if(Vector3.Distance(npc.transform.position, npc.target.transform.position) < 4 )
+            if(Vector3.Distance(npc.transform.position, npc.target.transform.position) < 2 )
             {
                 status = Status.SUCCESS;
                 break;

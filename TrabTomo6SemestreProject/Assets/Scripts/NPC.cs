@@ -14,22 +14,32 @@ public class NPC : MonoBehaviour
 
     void Start()
     {
+        BTInverter noEnemyNear = new BTInverter();
+        noEnemyNear.child = new BTNearEnemy();
+
+        BTSequenceParallel moveToExit = new BTSequenceParallel();
+        moveToExit.children.Add(noEnemyNear);
+        moveToExit.children.Add(new BTMoveToExit());
 
         BTSequence combat = new BTSequence();
         combat.children.Add(new BTNearEnemy());
         combat.children.Add(new BTSpotEnemy());
 
-        BTSequence moveToExit = new BTSequence();
-        moveToExit.children.Add(new BTSpotExit());
-        moveToExit.children.Add(new BTMoveToExit());
+        if (stats.type == NPCStats.Type.MEELE)
+        {
+            combat.children.Add(new BTMoveToEnemy());
+            combat.children.Add(new BTMeeleAttackEnemy());
+        }
+
+        else combat.children.Add(new BTRangedAttackEnemy());
+
+        BTSequence walk = new BTSequence();
+        walk.children.Add(new BTSpotExit());
+        walk.children.Add(moveToExit); 
 
         BTSelector selector = new BTSelector();
         selector.children.Add(combat);
-        selector.children.Add(moveToExit);
-
-        if (stats.type == NPCStats.Type.MEELE) combat.children.Add(new BTMoveToEnemy());
-        
-        else combat.children.Add(new BTAttackEnemy());
+        selector.children.Add(walk); 
 
         BehaviourTree bt = GetComponent<BehaviourTree>();
 
@@ -40,7 +50,6 @@ public class NPC : MonoBehaviour
         StartCoroutine(bt.Begin());
 
         life = stats.life;
-
     }
 
     private void OnTriggerEnter(Collider other)
