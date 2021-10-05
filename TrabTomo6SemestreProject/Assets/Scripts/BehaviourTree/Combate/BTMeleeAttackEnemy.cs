@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BTMeeleAttackEnemy : BTNode
+public class BTMeleeAttackEnemy : BTNode
 {
     public override IEnumerator Run(BehaviourTree bt)
     {

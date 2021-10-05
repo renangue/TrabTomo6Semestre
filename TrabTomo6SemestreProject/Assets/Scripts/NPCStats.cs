@@ -7,7 +7,7 @@ public class NPCStats : ScriptableObject
 {
     public enum Type
     {
-        MEELE,
+        MELEE,
         RANGED,
     }
    

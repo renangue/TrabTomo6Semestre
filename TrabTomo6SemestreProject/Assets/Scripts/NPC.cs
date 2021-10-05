@@ -25,10 +25,10 @@ public class NPC : MonoBehaviour
         combat.children.Add(new BTNearEnemy());
         combat.children.Add(new BTSpotEnemy());
 
-        if (stats.type == NPCStats.Type.MEELE)
+        if (stats.type == NPCStats.Type.MELEE)
         {
             combat.children.Add(new BTMoveToEnemy());
-            combat.children.Add(new BTMeeleAttackEnemy());
+            combat.children.Add(new BTRangedAttackEnemy());
         }
 
         else combat.children.Add(new BTRangedAttackEnemy());
