@@ -5,12 +5,14 @@ using UnityEngine;
 public class NPC : MonoBehaviour
 {
     public NPCStats stats;
+    public Transform muzzle;
+    public GameObject bullet;
+    public Animator animator;
 
-    private float life;
-
+    [HideInInspector]
     public GameObject target;
 
-    public GameObject bullet;
+    private float life;
 
     void Start()
     {
@@ -28,10 +30,10 @@ public class NPC : MonoBehaviour
         if (stats.type == NPCStats.Type.MELEE)
         {
             combat.children.Add(new BTMoveToEnemy());
-            combat.children.Add(new BTRangedAttackEnemy());
+            combat.children.Add(new BTAttackEnemy());
         }
 
-        else combat.children.Add(new BTRangedAttackEnemy());
+        else combat.children.Add(new BTAttackEnemy());
 
         BTSequence walk = new BTSequence();
         walk.children.Add(new BTSpotExit());
@@ -52,15 +54,14 @@ public class NPC : MonoBehaviour
         life = stats.life;
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void Update()
     {
-        if (other.CompareTag(bullet.tag))
-        {
-            Destroy(other.gameObject);
+        if (life <= 0)
+            Destroy(gameObject);
+    }
 
-            life--;
-
-            if (life == 0) Destroy(gameObject);
-        }
+    public void ReceiveDamageOrLife(float amount)
+    {
+        life += amount;
     }
 }

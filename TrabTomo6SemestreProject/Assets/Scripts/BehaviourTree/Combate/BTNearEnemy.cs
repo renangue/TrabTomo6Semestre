@@ -12,6 +12,8 @@ public class BTNearEnemy : BTNode
 
         GameObject[] enemies = GameObject.FindGameObjectsWithTag(npc.stats.targetTag);
 
+        npc.animator.SetBool("Attack", false);
+
         foreach (GameObject enemy in enemies)
         {
             if (enemy == bt.gameObject) continue;
