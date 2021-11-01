@@ -8,7 +8,7 @@ public class Bullet : MonoBehaviour
     private string targetTag;
     
     [SerializeField]
-    private float damage = -1;
+    private float damage = -1 ;
 
     [SerializeField]
     private bool meele;
@@ -25,7 +25,5 @@ public class Bullet : MonoBehaviour
             other.GetComponent<NPC>().ReceiveDamageOrLife(damage);
             Destroy(gameObject);
         }
-
-       
     }
 }

@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.AI;
 public class BTMoveToExit : BTNode
 {
     public override IEnumerator Run(BehaviourTree bt)
@@ -29,8 +29,9 @@ public class BTMoveToExit : BTNode
         
         while (target)
         {
-            bt.transform.LookAt(target.transform);
-            bt.transform.Translate(Vector3.forward * npc.stats.speed * Time.deltaTime);
+            NavMeshAgent agent = npc.GetComponent<NavMeshAgent>();
+            npc.transform.LookAt(npc.target.transform);
+            agent.SetDestination(npc.target.transform.position);
 
             if (Vector3.Distance(bt.transform.position, target.transform.position) < 1)
             {

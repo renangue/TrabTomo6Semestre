@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class BTMoveToEnemy : BTNode
 {
@@ -11,6 +12,7 @@ public class BTMoveToEnemy : BTNode
         Print(bt);
 
         NPC npc = bt.GetComponent<NPC>();
+        NavMeshAgent agent = bt.GetComponent<NavMeshAgent>();
 
         while (npc.target)
         {
@@ -19,9 +21,13 @@ public class BTMoveToEnemy : BTNode
                 status = Status.SUCCESS;
                 break;
             }
+
             
+            agent.speed = npc.stats.speed;
             npc.transform.LookAt(npc.target.transform);
-            npc.transform.Translate(Vector3.forward * npc.stats.speed * Time.deltaTime);
+            agent.SetDestination(npc.target.transform.position);
+           
+            
             yield return null;
         }
 
