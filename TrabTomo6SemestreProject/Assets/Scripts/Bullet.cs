@@ -15,12 +15,7 @@ public class Bullet : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if(meele)
-        {
-            other.GetComponent<NPC>().ReceiveDamageOrLife(damage);
-            Destroy(gameObject);
-        }
-        else if(other.CompareTag(targetTag))
+        if(other.CompareTag(targetTag))
         {
             other.GetComponent<NPC>().ReceiveDamageOrLife(damage);
             Destroy(gameObject);

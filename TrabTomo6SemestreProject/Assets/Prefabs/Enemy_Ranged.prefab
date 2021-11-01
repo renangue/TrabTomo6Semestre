@@ -42,6 +42,7 @@ GameObject:
   - component: {fileID: 8446419192035968820}
   - component: {fileID: 4789596948205999409}
   - component: {fileID: 6878224017564610287}
+  - component: {fileID: 3880970685918104630}
   m_Layer: 0
   m_Name: Enemy_Ranged
   m_TagString: Enemy
@@ -107,6 +108,22 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.64
   m_Center: {x: 0, y: 0.54, z: 0}
+--- !u!114 &3880970685918104630
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7410355822987029788}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a208b509b5e8254db2f29117eb67745, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  coinPrefabs:
+  - {fileID: 2101569616715043648, guid: bdc77f1e2cd22ec4c99acac05df3c3b3, type: 3}
+  - {fileID: 2101569616715043648, guid: bdc77f1e2cd22ec4c99acac05df3c3b3, type: 3}
+  - {fileID: 2101569616715043648, guid: bdc77f1e2cd22ec4c99acac05df3c3b3, type: 3}
 --- !u!1001 &9021524750736564332
 PrefabInstance:
   m_ObjectHideFlags: 0

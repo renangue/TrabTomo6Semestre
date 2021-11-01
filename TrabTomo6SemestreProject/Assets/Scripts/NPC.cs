@@ -9,6 +9,8 @@ public class NPC : MonoBehaviour
     public GameObject bullet;
     public Animator animator;
 
+    private CoinSpawner coinSpawner;
+
     [HideInInspector]
     public GameObject target;
 
@@ -16,6 +18,8 @@ public class NPC : MonoBehaviour
 
     void Start()
     {
+        coinSpawner = GetComponent<CoinSpawner>();
+
         BTInverter noEnemyNear = new BTInverter();
         noEnemyNear.child = new BTNearEnemy();
 
@@ -57,11 +61,19 @@ public class NPC : MonoBehaviour
     private void Update()
     {
         if (life <= 0)
+        {
             Destroy(gameObject);
+        }
     }
 
     public void ReceiveDamageOrLife(float amount)
     {
         life += amount;
+
+        if(!gameObject.CompareTag("Player"))
+        {
+            if (life <= 0)
+                coinSpawner.Spawn();
+        }
     }
 }

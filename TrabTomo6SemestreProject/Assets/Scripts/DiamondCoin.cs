@@ -14,8 +14,12 @@ public class DiamondCoin : MonoBehaviour
 
     void Update()
     {
-        transform.LookAt(player.transform, Vector3.up);
-        transform.Translate(Vector3.forward * speed * Time.deltaTime);
+        if(player)
+        {
+            speed += 3f * Time.deltaTime;
+            transform.LookAt(player.transform.position);
+            transform.Translate(Vector3.forward * speed * Time.deltaTime);
+        }  
     }
 
     private void OnTriggerEnter(Collider other)

@@ -1201,7 +1201,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 27.2, y: 0}
+  m_AnchoredPosition: {x: 27.199951, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &936789684
@@ -1449,8 +1449,40 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 3075353756355890604, guid: 0d10fe58464e9fc4084db4aff9b8932c, type: 3}
+      propertyPath: bullet
+      value: 
+      objectReference: {fileID: 661769143325968779, guid: 25c5061bbbae99b4daa9876917883662, type: 3}
+    - target: {fileID: 3075353756355890604, guid: 0d10fe58464e9fc4084db4aff9b8932c, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3075353756355890604, guid: 0d10fe58464e9fc4084db4aff9b8932c, type: 3}
+      propertyPath: onDie.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3075353756355890604, guid: 0d10fe58464e9fc4084db4aff9b8932c, type: 3}
+      propertyPath: onDie.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3075353756355890604, guid: 0d10fe58464e9fc4084db4aff9b8932c, type: 3}
+      propertyPath: onDie.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1145341827}
+    - target: {fileID: 3075353756355890604, guid: 0d10fe58464e9fc4084db4aff9b8932c, type: 3}
+      propertyPath: onDie.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3075353756355890604, guid: 0d10fe58464e9fc4084db4aff9b8932c, type: 3}
+      propertyPath: onDie.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Spawn
+      objectReference: {fileID: 0}
+    - target: {fileID: 3075353756355890604, guid: 0d10fe58464e9fc4084db4aff9b8932c, type: 3}
+      propertyPath: onDie.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: CoinSpawner, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 3075353756355890604, guid: 0d10fe58464e9fc4084db4aff9b8932c, type: 3}
+      propertyPath: onDie.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 3237915617455810023, guid: 0d10fe58464e9fc4084db4aff9b8932c, type: 3}
       propertyPath: m_RootOrder
@@ -1813,7 +1845,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a208b509b5e8254db2f29117eb67745, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  coinPrefab: {fileID: 2101569616715043648, guid: bdc77f1e2cd22ec4c99acac05df3c3b3, type: 3}
+  coinPrefabs:
+  - {fileID: 2101569616715043648, guid: bdc77f1e2cd22ec4c99acac05df3c3b3, type: 3}
+  - {fileID: 2101569616715043648, guid: bdc77f1e2cd22ec4c99acac05df3c3b3, type: 3}
+  - {fileID: 2101569616715043648, guid: bdc77f1e2cd22ec4c99acac05df3c3b3, type: 3}
 --- !u!1 &1154802792
 GameObject:
   m_ObjectHideFlags: 0
@@ -2891,7 +2926,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8319572838004404095, guid: f2cc98ce15da6db488d8a927a4efd061, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 3.4
       objectReference: {fileID: 0}
     - target: {fileID: 8319572838004404095, guid: f2cc98ce15da6db488d8a927a4efd061, type: 3}
       propertyPath: m_LocalPosition.y
@@ -2939,8 +2974,12 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 9182656770977135180, guid: 223ed752f608c4f4b87a68f3643b0297, type: 3}
+      propertyPath: bullet
+      value: 
+      objectReference: {fileID: 661769143325968779, guid: f406006aaa72b85429e3c63c5f5fc5d8, type: 3}
+    - target: {fileID: 9182656770977135180, guid: 223ed752f608c4f4b87a68f3643b0297, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9182656770977135181, guid: 223ed752f608c4f4b87a68f3643b0297, type: 3}
       propertyPath: m_RootOrder
@@ -2989,6 +3028,10 @@ PrefabInstance:
     - target: {fileID: 9182656770977135184, guid: 223ed752f608c4f4b87a68f3643b0297, type: 3}
       propertyPath: m_Name
       value: Player_Meele
+      objectReference: {fileID: 0}
+    - target: {fileID: 9182656770977135185, guid: 223ed752f608c4f4b87a68f3643b0297, type: 3}
+      propertyPath: m_Constraints
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 223ed752f608c4f4b87a68f3643b0297, type: 3}
