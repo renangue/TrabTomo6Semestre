@@ -2358,6 +2358,7 @@ GameObject:
   - component: {fileID: 9182656770977135182}
   - component: {fileID: 9182656770977135185}
   - component: {fileID: 1673493298}
+  - component: {fileID: 1515392641}
   m_Layer: 0
   m_Name: Player_Meele
   m_TagString: Player
@@ -2395,7 +2396,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stats: {fileID: 11400000, guid: c5b4a90ef9d55564fbd430c63799d70d, type: 2}
   muzzle: {fileID: 9182656769293168349}
-  bullet: {fileID: 661769143325968779, guid: c8b902828ffcdc64a96d9cd4dd3abdd4, type: 3}
+  bullet: {fileID: 661769143325968779, guid: f406006aaa72b85429e3c63c5f5fc5d8, type: 3}
   animator: {fileID: 7492284121193933895}
   target: {fileID: 0}
 --- !u!114 &9182656770977135183
@@ -2438,7 +2439,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 112
+  m_Constraints: 0
   m_CollisionDetection: 0
 --- !u!195 &1673493298
 NavMeshAgent:
@@ -2462,3 +2463,17 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!114 &1515392641
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9182656770977135184}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09b389d82c55a5b48ba17680fd582282, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  diamonds: 100
+  cashText: {fileID: 0}

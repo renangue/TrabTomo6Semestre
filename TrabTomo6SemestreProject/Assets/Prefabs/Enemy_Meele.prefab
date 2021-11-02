@@ -44,6 +44,7 @@ GameObject:
   - component: {fileID: 67044090380199031}
   - component: {fileID: 1877784380}
   - component: {fileID: 1877784384}
+  - component: {fileID: 1145341827}
   m_Layer: 0
   m_Name: Enemy_Meele
   m_TagString: Enemy
@@ -81,7 +82,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stats: {fileID: 11400000, guid: 981e5aa3ec0b6194b9e2c5944a12b419, type: 2}
   muzzle: {fileID: 1114538849}
-  bullet: {fileID: 661769143325968779, guid: c8b902828ffcdc64a96d9cd4dd3abdd4, type: 3}
+  bullet: {fileID: 661769143325968779, guid: 25c5061bbbae99b4daa9876917883662, type: 3}
   animator: {fileID: 4539030770193218943}
   target: {fileID: 0}
 --- !u!114 &2153421559606550441
@@ -147,6 +148,22 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!114 &1145341827
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4128871944843601796}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a208b509b5e8254db2f29117eb67745, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  coinPrefabs:
+  - {fileID: 2101569616715043648, guid: bdc77f1e2cd22ec4c99acac05df3c3b3, type: 3}
+  - {fileID: 2101569616715043648, guid: bdc77f1e2cd22ec4c99acac05df3c3b3, type: 3}
+  - {fileID: 2101569616715043648, guid: bdc77f1e2cd22ec4c99acac05df3c3b3, type: 3}
 --- !u!1001 &4589090997329607381
 PrefabInstance:
   m_ObjectHideFlags: 0
