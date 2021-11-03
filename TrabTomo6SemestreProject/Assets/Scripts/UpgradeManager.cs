@@ -209,6 +209,7 @@ public class UpgradeManager : MonoBehaviour
 [System.Serializable]
 public class Upgrade
 {
+    public string upgradeName;
     public int actualRankUpgrade;
     public Text actualBonusText;
     public Text nextBonusText;
