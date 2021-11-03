@@ -19,4 +19,12 @@ public class NPCStats : ScriptableObject
     public float fireRate = 1f;
     public float damagePower = 1f;
     public float bulletSpeed = 200f;
+
+    public void Setup(NPCStats _stats)
+    {
+        this.life = _stats.life;
+        this.speed = _stats.speed;
+        this.fireRate = _stats.fireRate;
+        this.damagePower = _stats.damagePower;
+    }
 }

@@ -18,8 +18,6 @@ public class NPC : MonoBehaviour
 
     void Start()
     {
-        coinSpawner = GetComponent<CoinSpawner>();
-
         BTInverter noEnemyNear = new BTInverter();
         noEnemyNear.child = new BTNearEnemy();
 
@@ -56,6 +54,11 @@ public class NPC : MonoBehaviour
         StartCoroutine(bt.Begin());
 
         life = stats.life;
+    }
+
+    private void OnEnable()
+    {
+        coinSpawner = GetComponent<CoinSpawner>();
     }
 
     private void Update()

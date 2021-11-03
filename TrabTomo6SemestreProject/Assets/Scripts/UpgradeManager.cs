@@ -42,18 +42,20 @@ public class UpgradeManager : MonoBehaviour
 
     void Start()
     {
-        //SetTexts(0, ref slingshot);
-        //SetTexts(1, ref ruler);
-        //SetTexts(2, ref guitar);
         SetTexts(0);
+        SetTexts(1);
+        SetTexts(2);
+        SetTexts(3);
+
     }
 
     void OnEnable()
     {
-        //slingshotButton.onClick.AddListener(delegate { Upgrade(0, ref slingshot); });
-        //rulerButton.onClick.AddListener(delegate { Upgrade(1, ref ruler); });
-        //guitarButton.onClick.AddListener(delegate { Upgrade(2, ref guitar); });
-        lifeButton.onClick.AddListener(delegate { Upgrade(0); });
+        lifeButton.onClick.AddListener(delegate { UpgradeLife(3); });
+        speedButton.onClick.AddListener(delegate { UpgradeSpeed(0); });
+        damagePowerButton.onClick.AddListener(delegate { UpgradeDamage(1); });
+        fireRateButton.onClick.AddListener(delegate { UpgradeFireRate(2); });
+
 
         playerWallet = FindObjectOfType<Wallet>();
     }
@@ -66,23 +68,14 @@ public class UpgradeManager : MonoBehaviour
         upgrade.nextBonusText.text = (stats.life + upgrade.rankUpgrades[upgrade.actualRankUpgrade].bonus).ToString();
     }
 
-    //public void SetTexts(int index, ref Weapon weapon)
-    //{
-    //    Upgrade upgrade = upgradeTree[index];
-    //    weapon.SetDamage(weapon.preset.damage);
-    //    upgrade.actualBonusText.text = weapon.damage.ToString();
-    //    upgrade.costText.text = "$" + upgrade.rankUpgrades[upgrade.actualRankUpgrade].cost.ToString();
-    //    upgrade.nextBonusText.text = (weapon.damage + upgrade.rankUpgrades[upgrade.actualRankUpgrade].bonus).ToString();
-    //}
-
-    public void Upgrade(int index)
+    public void UpgradeLife(int index)
     {
         Upgrade upgrade = upgradeTree[index];
         if (upgrade.actualRankUpgrade < upgrade.rankUpgrades.Length)
         {
             if (upgrade.rankUpgrades[upgrade.actualRankUpgrade].cost <= Wallet.cash)
             {
-                UpgradeLife(upgrade.rankUpgrades[upgrade.actualRankUpgrade].cost, upgrade.rankUpgrades[upgrade.actualRankUpgrade].bonus);
+                IncreaseLife(upgrade.rankUpgrades[upgrade.actualRankUpgrade].cost, upgrade.rankUpgrades[upgrade.actualRankUpgrade].bonus);
                 upgrade.actualRankUpgrade++;
                 if (upgrade.actualRankUpgrade < upgrade.rankUpgrades.Length)
                 {
@@ -100,54 +93,103 @@ public class UpgradeManager : MonoBehaviour
         }
     }
 
-    //public void Upgrade(int index, ref Weapon weapon)
-    //{
-    //    Upgrade upgrade = upgradeTree[index];
-    //    if (upgrade.actualRankUpgrade < upgrade.rankUpgrades.Length)
-    //    {
-    //        if (upgrade.rankUpgrades[upgrade.actualRankUpgrade].cost <= Wallet.cash)
-    //        {
-    //            UpgradeWeapon(upgrade.rankUpgrades[upgrade.actualRankUpgrade].cost, upgrade.rankUpgrades[upgrade.actualRankUpgrade].bonus, ref weapon);
-    //            upgrade.actualRankUpgrade++;
+    public void UpgradeSpeed(int index)
+    {
+        Upgrade upgrade = upgradeTree[index];
+        if (upgrade.actualRankUpgrade < upgrade.rankUpgrades.Length)
+        {
+            if (upgrade.rankUpgrades[upgrade.actualRankUpgrade].cost <= Wallet.cash)
+            {
+                IncreaseSpeed(upgrade.rankUpgrades[upgrade.actualRankUpgrade].cost, upgrade.rankUpgrades[upgrade.actualRankUpgrade].bonus);
+                upgrade.actualRankUpgrade++;
+                if (upgrade.actualRankUpgrade < upgrade.rankUpgrades.Length)
+                {
+                    upgrade.actualBonusText.text = stats.life.ToString();
+                    upgrade.costText.text = "$" + upgrade.rankUpgrades[upgrade.actualRankUpgrade].cost.ToString();
+                    upgrade.nextBonusText.text = (stats.speed + upgrade.rankUpgrades[upgrade.actualRankUpgrade].bonus).ToString();
+                }
+                else
+                {
+                    upgrade.actualBonusText.text = stats.life.ToString();
+                    upgrade.costText.text = "";
+                    upgrade.nextBonusText.text = "";
+                }
+            }
+        }
+    }
 
-    //            if (upgrade.actualRankUpgrade < upgrade.rankUpgrades.Length)
-    //            {
-    //                upgrade.actualBonusText.text = weapon.damage.ToString();
-    //                upgrade.costText.text = "$" + upgrade.rankUpgrades[upgrade.actualRankUpgrade].cost.ToString();
-    //                upgrade.nextBonusText.text = (weapon.damage + upgrade.rankUpgrades[upgrade.actualRankUpgrade].bonus).ToString();
-    //            }
-    //            else
-    //            {
-    //                upgrade.actualBonusText.text = weapon.damage.ToString();
-    //                upgrade.costText.text = "";
-    //                upgrade.nextBonusText.text = "";
-    //            }
-    //        }
-    //    }
-    //}
+    public void UpgradeDamage(int index)
+    {
+        Upgrade upgrade = upgradeTree[index];
+        if (upgrade.actualRankUpgrade < upgrade.rankUpgrades.Length)
+        {
+            if (upgrade.rankUpgrades[upgrade.actualRankUpgrade].cost <= Wallet.cash)
+            {
+                IncreaseDamage(upgrade.rankUpgrades[upgrade.actualRankUpgrade].cost, upgrade.rankUpgrades[upgrade.actualRankUpgrade].bonus);
+                upgrade.actualRankUpgrade++;
+                if (upgrade.actualRankUpgrade < upgrade.rankUpgrades.Length)
+                {
+                    upgrade.actualBonusText.text = stats.life.ToString();
+                    upgrade.costText.text = "$" + upgrade.rankUpgrades[upgrade.actualRankUpgrade].cost.ToString();
+                    upgrade.nextBonusText.text = (stats.damagePower + upgrade.rankUpgrades[upgrade.actualRankUpgrade].bonus).ToString();
+                }
+                else
+                {
+                    upgrade.actualBonusText.text = stats.life.ToString();
+                    upgrade.costText.text = "";
+                    upgrade.nextBonusText.text = "";
+                }
+            }
+        }
+    }
 
-    public void UpgradeDamage(int cost, float bonus)
+    public void UpgradeFireRate(int index)
+    {
+        Upgrade upgrade = upgradeTree[index];
+        if (upgrade.actualRankUpgrade < upgrade.rankUpgrades.Length)
+        {
+            if (upgrade.rankUpgrades[upgrade.actualRankUpgrade].cost <= Wallet.cash)
+            {
+                IncreaseFireRate(upgrade.rankUpgrades[upgrade.actualRankUpgrade].cost, upgrade.rankUpgrades[upgrade.actualRankUpgrade].bonus);
+                upgrade.actualRankUpgrade++;
+                if (upgrade.actualRankUpgrade < upgrade.rankUpgrades.Length)
+                {
+                    upgrade.actualBonusText.text = stats.life.ToString();
+                    upgrade.costText.text = "$" + upgrade.rankUpgrades[upgrade.actualRankUpgrade].cost.ToString();
+                    upgrade.nextBonusText.text = (stats.fireRate + upgrade.rankUpgrades[upgrade.actualRankUpgrade].bonus).ToString();
+                }
+                else
+                {
+                    upgrade.actualBonusText.text = stats.life.ToString();
+                    upgrade.costText.text = "";
+                    upgrade.nextBonusText.text = "";
+                }
+            }
+        }
+    }
+
+    public void IncreaseDamage(int cost, float bonus)
     {
         stats.damagePower += bonus;
 
         SpentCash(-cost);
     }
 
-    public void UpgradeFireRate(int cost, float bonus)
+    public void IncreaseFireRate(int cost, float bonus)
     {
-        stats.fireRate += bonus;
+        stats.fireRate *= bonus/100;
 
         SpentCash(-cost);
     }
 
-    public void UpgradeSpeed(int cost, float bonus)
+    public void IncreaseSpeed(int cost, float bonus)
     {
         stats.speed += bonus;
 
         SpentCash(-cost);
     }
 
-    public void UpgradeLife(int cost, int bonus)
+    public void IncreaseLife(int cost, int bonus)
     {
         stats.life += bonus;
 
