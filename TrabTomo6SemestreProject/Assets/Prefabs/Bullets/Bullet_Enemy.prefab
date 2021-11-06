@@ -125,6 +125,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f8c2778cfb20830438cd7980d102afa0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  stats: {fileID: 11400000, guid: ed195c404e944454296f19692da86992, type: 2}
   targetTag: Player
-  damage: -1
-  meele: 0

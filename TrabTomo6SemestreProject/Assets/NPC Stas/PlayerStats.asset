@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: PlayerStats
   m_EditorClassIdentifier: 
   targetTag: Enemy
-  type: 0
-  life: 5
+  type: 1
+  life: 10
   speed: 2
-  spotEnemyDistance: 10
+  spotEnemyDistance: 100
   fireRate: 2
-  damagePower: 1
+  damagePower: 50
   bulletSpeed: 200

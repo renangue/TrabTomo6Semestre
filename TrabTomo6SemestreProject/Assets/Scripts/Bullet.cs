@@ -17,5 +17,7 @@ public class Bullet : MonoBehaviour
             other.GetComponent<NPC>().ReceiveDamageOrLife(-stats.damagePower);
             Destroy(gameObject);
         }
+
+        print(other.name);
     }
 }

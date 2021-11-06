@@ -24,11 +24,9 @@ public class BTAttackEnemy : BTNode
 
             yield return new WaitForSeconds(npc.stats.fireRate);
 
-            if(npc.life <= 0)
-            {
-                status = Status.SUCCESS;
-                break;
-            }         
+            status = Status.SUCCESS;
+            break;
+               
         }
 
         if (status == Status.RUNNING) status = Status.FAILURE;;

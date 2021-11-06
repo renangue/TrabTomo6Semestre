@@ -18,38 +18,23 @@ public class NPC : MonoBehaviour
 
     void Start()
     {
-        BTInverter noEnemyNear = new BTInverter();
-        noEnemyNear.child = new BTNearEnemy();
-
-        BTSequenceParallel moveToExit = new BTSequenceParallel();
-        moveToExit.children.Add(noEnemyNear);
-        moveToExit.children.Add(new BTMoveToExit());
-
         BTSequence combat = new BTSequence();
         combat.children.Add(new BTNearEnemy());
         combat.children.Add(new BTSpotEnemy());
-
-        if (stats.type == NPCStats.Type.MELEE)
+        
+        if(gameObject.CompareTag("Enemy") && stats.type == NPCStats.Type.RANGED)
+        {
+            combat.children.Add(new BTAttackEnemy());
+        }
+        else
         {
             combat.children.Add(new BTMoveToEnemy());
             combat.children.Add(new BTAttackEnemy());
         }
-
-        else combat.children.Add(new BTAttackEnemy());
-
-        BTSequence walk = new BTSequence();
-        walk.children.Add(new BTSpotExit());
-        walk.children.Add(moveToExit); 
-
-        BTSelector selector = new BTSelector();
-        selector.children.Add(combat);
-        selector.children.Add(walk); 
-
+        
         BehaviourTree bt = GetComponent<BehaviourTree>();
 
-        if (bt.CompareTag("Player")) bt.root = selector;
-
-        else bt.root = combat;
+        bt.root = combat;
 
         StartCoroutine(bt.Begin());
 

@@ -14,9 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targetTag: Enemy
   type: 1
-  life: 5
+  life: 10
   speed: 2
   spotEnemyDistance: 10
   fireRate: 2
-  damagePower: 1
+  damagePower: 50
   bulletSpeed: 1000

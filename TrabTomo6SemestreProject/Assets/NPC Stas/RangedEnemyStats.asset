@@ -18,4 +18,5 @@ MonoBehaviour:
   speed: 2
   spotEnemyDistance: 50
   fireRate: 2
+  damagePower: 1
   bulletSpeed: 200
