@@ -16,7 +16,7 @@ public class BTMoveToEnemy : BTNode
 
         while (npc.target)
         {
-            if(Vector3.Distance(npc.transform.position, npc.target.transform.position) < 8)
+            if(Vector3.Distance(npc.transform.position, npc.target.transform.position) < npc.stats.attackRange)
             {
                 status = Status.SUCCESS;
                 agent.speed = 0;
@@ -25,9 +25,12 @@ public class BTMoveToEnemy : BTNode
             
             npc.transform.LookAt(npc.target.transform);
             
-            agent.speed = npc.stats.speed;
-            agent.SetDestination(npc.target.transform.position);
-            
+            if(agent)
+            {
+                agent.speed = npc.stats.speed;
+                agent.SetDestination(npc.target.transform.position);
+            }
+
             yield return null;
         }
 

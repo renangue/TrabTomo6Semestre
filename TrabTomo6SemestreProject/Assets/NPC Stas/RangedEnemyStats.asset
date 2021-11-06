@@ -16,7 +16,8 @@ MonoBehaviour:
   type: 1
   life: 2
   speed: 2
-  spotEnemyDistance: 50
+  spotEnemyDistance: 10
+  attackRange: 3
   fireRate: 2
   damagePower: 1
   bulletSpeed: 200

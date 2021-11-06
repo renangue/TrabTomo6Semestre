@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 6986474927501512160}
   - component: {fileID: 7767798460601148008}
   - component: {fileID: 3469429516923065848}
-  - component: {fileID: -2101266123335665700}
+  - component: {fileID: -3251520143872526041}
   m_Layer: 0
-  m_Name: Bullet_Meele
+  m_Name: Bullet_Player_Melee
   m_TagString: Bullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -62,7 +62,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &-2101266123335665700
+--- !u!114 &-3251520143872526041
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -74,6 +74,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f8c2778cfb20830438cd7980d102afa0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetTag: 
-  damage: -1
-  meele: 1
+  stats: {fileID: 11400000, guid: c5b4a90ef9d55564fbd430c63799d70d, type: 2}
+  targetTag: Enemy

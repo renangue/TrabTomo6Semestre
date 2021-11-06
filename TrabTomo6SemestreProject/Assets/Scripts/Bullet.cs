@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
+    [HideInInspector]
     public NPCStats stats;
 
     [SerializeField]
     private string targetTag;
-
 
     private void OnTriggerEnter(Collider other)
     {
@@ -17,7 +17,10 @@ public class Bullet : MonoBehaviour
             other.GetComponent<NPC>().ReceiveDamageOrLife(-stats.damagePower);
             Destroy(gameObject);
         }
+    }
 
-        print(other.name);
+    public void SetStat(NPCStats _stats)
+    {
+        stats = _stats;
     }
 }

@@ -39,6 +39,8 @@ public class NPC : MonoBehaviour
         StartCoroutine(bt.Begin());
 
         life = stats.life;
+
+        bullet.GetComponent<Bullet>().SetStat(stats);
     }
 
     private void OnEnable()

@@ -19,6 +19,9 @@ public class BTAttackEnemy : BTNode
             npc.animator.SetBool("Attack", true);
 
             Quaternion rotation = npc.transform.rotation;
+
+            //yield return new WaitForSeconds(1.1f);
+            
             GameObject clone = GameObject.Instantiate(npc.bullet, npc.muzzle.position, rotation);
             clone.GetComponent<Rigidbody>().AddForce(npc.transform.forward * npc.stats.bulletSpeed);
 

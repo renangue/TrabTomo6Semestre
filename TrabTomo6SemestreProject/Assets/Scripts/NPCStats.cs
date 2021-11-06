@@ -16,6 +16,7 @@ public class NPCStats : ScriptableObject
     public int life = 5;
     public float speed = 5f;
     public float spotEnemyDistance = 10;
+    public float attackRange = 3f;
     public float fireRate = 1f;
     public float damagePower = 1f;
     public float bulletSpeed = 200f;
