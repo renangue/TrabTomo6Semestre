@@ -12,24 +12,27 @@ public class BTAttackEnemy : BTNode
 
         NPC npc = bt.GetComponent<NPC>();
 
-        if (npc.target)
+        while (npc.target)
         {
             npc.transform.LookAt(npc.target.transform);
+
             npc.animator.SetBool("Attack", true);
 
             Quaternion rotation = npc.transform.rotation;
             GameObject clone = GameObject.Instantiate(npc.bullet, npc.muzzle.position, rotation);
             clone.GetComponent<Rigidbody>().AddForce(npc.transform.forward * npc.stats.bulletSpeed);
-            
+
             yield return new WaitForSeconds(npc.stats.fireRate);
 
-            status = Status.SUCCESS;
-        }
-        else
-        {
-            status = Status.FAILURE;
+            if(npc.life <= 0)
+            {
+                status = Status.SUCCESS;
+                break;
+            }         
         }
 
+        if (status == Status.RUNNING) status = Status.FAILURE;;
+       
         Print(bt);
     }
 }

@@ -12,28 +12,15 @@ public class BTMoveToExit : BTNode
 
         GameObject exit = GameObject.FindGameObjectWithTag("Finish");
 
-        GameObject target = null;
-
-        float distance = Mathf.Infinity;
-
-        Print(bt);
-        
-        float currentDist = Vector3.Distance(bt.transform.position, exit.transform.position);
-
-        if (currentDist < distance)
-        {
-            target = exit;
-        }
-
         NPC npc = bt.GetComponent<NPC>();
         
-        while (target)
+        while (exit)
         {
             NavMeshAgent agent = npc.GetComponent<NavMeshAgent>();
-            npc.transform.LookAt(npc.target.transform);
-            agent.SetDestination(npc.target.transform.position);
+            npc.transform.LookAt(exit.transform);
+            agent.SetDestination(exit.transform.position);
 
-            if (Vector3.Distance(bt.transform.position, target.transform.position) < 1)
+            if (Vector3.Distance(bt.transform.position, exit.transform.position ) < 1)
             {
                 status = Status.SUCCESS;
                 break;

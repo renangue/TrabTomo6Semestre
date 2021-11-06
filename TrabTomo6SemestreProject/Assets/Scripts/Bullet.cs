@@ -4,20 +4,17 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-    [SerializeField]
-    private string targetTag;
-    
-    [SerializeField]
-    private float damage = -1 ;
+    public NPCStats stats;
 
     [SerializeField]
-    private bool meele;
+    private string targetTag;
+
 
     private void OnTriggerEnter(Collider other)
     {
         if(other.CompareTag(targetTag))
         {
-            other.GetComponent<NPC>().ReceiveDamageOrLife(damage);
+            other.GetComponent<NPC>().ReceiveDamageOrLife(-stats.damagePower);
             Destroy(gameObject);
         }
     }

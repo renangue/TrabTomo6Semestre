@@ -18,6 +18,8 @@ public class UpgradeManager : MonoBehaviour
     public Button lifeButton;
 
     public Button supportLifeButton;
+
+    public Button closeButton;
     
     public GameObject objectUI;
 
@@ -55,6 +57,8 @@ public class UpgradeManager : MonoBehaviour
         speedButton.onClick.AddListener(delegate { UpgradeSpeed(0); });
         damagePowerButton.onClick.AddListener(delegate { UpgradeDamage(1); });
         fireRateButton.onClick.AddListener(delegate { UpgradeFireRate(2); });
+
+        closeButton.onClick.AddListener(delegate { CloseWindow(); });
 
 
         playerWallet = FindObjectOfType<Wallet>();

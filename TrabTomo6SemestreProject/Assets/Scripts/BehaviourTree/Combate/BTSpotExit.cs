@@ -10,20 +10,10 @@ public class BTSpotExit : BTNode
 
         GameObject exit = GameObject.FindGameObjectWithTag("Finish");
 
-        GameObject target = null;
-
-        float distance = Mathf.Infinity;
-
-        float dist = Vector3.Distance(bt.transform.position, exit.transform.position);
-
-        if (dist < distance)
-        {
-            target = exit;
-        }
         
-        if (target)
+        if (exit)
         {
-            npc.target = target;
+            npc.target = exit;
             status = Status.SUCCESS;
         }
         else
