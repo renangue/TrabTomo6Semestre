@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targetTag: Enemy
   type: 1
-  life: 10
+  life: 5
   speed: 2
   spotEnemyDistance: 100
   attackRange: 3

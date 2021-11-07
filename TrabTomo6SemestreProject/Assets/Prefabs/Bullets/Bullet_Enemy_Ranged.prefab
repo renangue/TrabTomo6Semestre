@@ -76,7 +76,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stats: {fileID: 11400000, guid: ed195c404e944454296f19692da86992, type: 2}
-  targetTag: Enemy
+  targetTag: Player
 --- !u!1 &3428875971432109913
 GameObject:
   m_ObjectHideFlags: 0

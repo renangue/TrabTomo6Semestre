@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class NPC : MonoBehaviour
 {
@@ -9,12 +10,15 @@ public class NPC : MonoBehaviour
     public GameObject bullet;
     public Animator animator;
 
+    public Image lifeBar;
+
     private CoinSpawner coinSpawner;
 
     [HideInInspector]
     public GameObject target;
 
     private float life;
+    private float currentLife;
 
     void Start()
     {
@@ -40,6 +44,8 @@ public class NPC : MonoBehaviour
 
         life = stats.life;
 
+        currentLife = life;
+
         bullet.GetComponent<Bullet>().SetStat(stats);
     }
 
@@ -50,7 +56,7 @@ public class NPC : MonoBehaviour
 
     private void Update()
     {
-        if (life <= 0)
+        if (currentLife <= 0)
         {
             Destroy(gameObject);
         }
@@ -58,9 +64,13 @@ public class NPC : MonoBehaviour
 
     public void ReceiveDamageOrLife(float amount)
     {
-        life += amount;
+        currentLife += amount;
 
-        if(!gameObject.CompareTag("Player"))
+        lifeBar.fillAmount = currentLife/life;
+
+        currentLife = Mathf.Clamp(currentLife, 0, life);
+
+        if (!gameObject.CompareTag("Player"))
         {
             if (life <= 0)
                 coinSpawner.Spawn();
