@@ -1611,6 +1611,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 9182656770977135180, guid: 223ed752f608c4f4b87a68f3643b0297, type: 3}
+      propertyPath: dontDestroy
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 9182656770977135181, guid: 223ed752f608c4f4b87a68f3643b0297, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -1657,7 +1661,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9182656770977135184, guid: 223ed752f608c4f4b87a68f3643b0297, type: 3}
       propertyPath: m_Name
-      value: Player_Ranged Variant
+      value: Player_Ranged
       objectReference: {fileID: 0}
     - target: {fileID: 9182656770977135184, guid: 223ed752f608c4f4b87a68f3643b0297, type: 3}
       propertyPath: m_IsActive

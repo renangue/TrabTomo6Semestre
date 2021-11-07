@@ -2514,14 +2514,14 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8157816477599620438}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0.42261827, y: 0, z: 0, w: 0.9063079}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2158925877019173557}
   m_Father: {fileID: 4787980916860495444}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 50, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 3.03}
@@ -2647,6 +2647,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5416a9f8fa6ff4449bc436cbe4eb06de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dontDestroy: 1
   stats: {fileID: 11400000, guid: c5b4a90ef9d55564fbd430c63799d70d, type: 2}
   muzzle: {fileID: 9182656769293168349}
   bullet: {fileID: 661769143325968779, guid: f406006aaa72b85429e3c63c5f5fc5d8, type: 3}
@@ -2729,7 +2730,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09b389d82c55a5b48ba17680fd582282, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  diamonds: 100
   cashText: {fileID: 0}
 --- !u!114 &82195649
 MonoBehaviour:
