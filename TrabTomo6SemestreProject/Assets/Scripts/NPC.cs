@@ -13,7 +13,6 @@ public class NPC : MonoBehaviour
     public Image lifeBar;
 
     private CoinSpawner coinSpawner;
-    private GameObject playerLocation;
 
     [HideInInspector]
     public GameObject target;
@@ -54,19 +53,11 @@ public class NPC : MonoBehaviour
         {
             DontDestroyOnLoad(gameObject);
         }
-        
     }
 
     private void OnEnable()
     {
         coinSpawner = GetComponent<CoinSpawner>();
-
-        if(gameObject.CompareTag("Player"))
-        {
-            playerLocation = GameObject.Find("PlayerLocation");
-
-            transform.position = playerLocation.transform.position;
-        }
     }
 
     private void Update()
@@ -90,5 +81,10 @@ public class NPC : MonoBehaviour
             if (currentLife <= 0)
                 coinSpawner.Spawn();
         }
+    }
+
+    public void ResetPos(Transform target)
+    {
+        transform.position = target.position;
     }
 }
