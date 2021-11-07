@@ -5,20 +5,22 @@ using UnityEngine.UI;
 
 public class NPC : MonoBehaviour
 {
+    public bool dontDestroy;
     public NPCStats stats;
     public Transform muzzle;
     public GameObject bullet;
     public Animator animator;
-
     public Image lifeBar;
 
     private CoinSpawner coinSpawner;
+    private GameObject playerLocation;
 
     [HideInInspector]
     public GameObject target;
 
     private float life;
     private float currentLife;
+    public static float currentSavedLife;
 
     void Start()
     {
@@ -47,11 +49,24 @@ public class NPC : MonoBehaviour
         currentLife = life;
 
         bullet.GetComponent<Bullet>().SetStat(stats);
+
+        if(dontDestroy)
+        {
+            DontDestroyOnLoad(gameObject);
+        }
+        
     }
 
     private void OnEnable()
     {
         coinSpawner = GetComponent<CoinSpawner>();
+
+        if(gameObject.CompareTag("Player"))
+        {
+            playerLocation = GameObject.Find("PlayerLocation");
+
+            transform.position = playerLocation.transform.position;
+        }
     }
 
     private void Update()
@@ -72,7 +87,7 @@ public class NPC : MonoBehaviour
 
         if (!gameObject.CompareTag("Player"))
         {
-            if (life <= 0)
+            if (currentLife <= 0)
                 coinSpawner.Spawn();
         }
     }

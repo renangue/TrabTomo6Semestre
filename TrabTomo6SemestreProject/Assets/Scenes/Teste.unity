@@ -411,7 +411,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &212008964 stripped
 MonoBehaviour:
@@ -490,7 +490,7 @@ Transform:
   m_Father: {fileID: 558745329}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &315053032
+--- !u!1 &346602592
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -498,90 +498,27 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 315053034}
-  - component: {fileID: 315053033}
+  - component: {fileID: 346602593}
   m_Layer: 0
-  m_Name: UpgradeManager
+  m_Name: PlayerLocation
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &315053033
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 315053032}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3cd3349fa0b6dd6498c802bd96049dc6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  stats: {fileID: 11400000, guid: c5b4a90ef9d55564fbd430c63799d70d, type: 2}
-  speedButton: {fileID: 2607262617649944816}
-  damagePowerButton: {fileID: 728728560}
-  fireRateButton: {fileID: 1724548529}
-  lifeButton: {fileID: 212008964}
-  supportLifeButton: {fileID: 0}
-  closeButton: {fileID: 503122184}
-  objectUI: {fileID: 701413606}
-  playerWallet: {fileID: 1515392641}
-  upgradeTree:
-  - upgradeName: 
-    actualRankUpgrade: 0
-    actualBonusText: {fileID: 2607262617649944819}
-    nextBonusText: {fileID: 2607262617649944818}
-    costText: {fileID: 2607262617649944817}
-    rankUpgrades:
-    - bonus: 5
-      cost: 5
-    - bonus: 10
-      cost: 10
-  - upgradeName: 
-    actualRankUpgrade: 0
-    actualBonusText: {fileID: 728728563}
-    nextBonusText: {fileID: 728728562}
-    costText: {fileID: 728728561}
-    rankUpgrades:
-    - bonus: 6
-      cost: 1
-    - bonus: 10
-      cost: 10
-  - upgradeName: 
-    actualRankUpgrade: 0
-    actualBonusText: {fileID: 1724548532}
-    nextBonusText: {fileID: 1724548531}
-    costText: {fileID: 1724548530}
-    rankUpgrades:
-    - bonus: 50
-      cost: 20
-    - bonus: 10
-      cost: 10
-  - upgradeName: 
-    actualRankUpgrade: 0
-    actualBonusText: {fileID: 536107597}
-    nextBonusText: {fileID: 464653787}
-    costText: {fileID: 1747155425}
-    rankUpgrades:
-    - bonus: 5
-      cost: 5
-    - bonus: 10
-      cost: 10
---- !u!4 &315053034
+--- !u!4 &346602593
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 315053032}
+  m_GameObject: {fileID: 346602592}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &464653787 stripped
 MonoBehaviour:
@@ -909,6 +846,7 @@ GameObject:
   - component: {fileID: 558745328}
   - component: {fileID: 558745327}
   - component: {fileID: 558745326}
+  - component: {fileID: 558745330}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -993,13 +931,75 @@ RectTransform:
   - {fileID: 701413609}
   - {fileID: 230097264}
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &558745330
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 558745325}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3cd3349fa0b6dd6498c802bd96049dc6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stats: {fileID: 11400000, guid: c5b4a90ef9d55564fbd430c63799d70d, type: 2}
+  speedButton: {fileID: 2607262617649944816}
+  damagePowerButton: {fileID: 728728560}
+  fireRateButton: {fileID: 1724548529}
+  lifeButton: {fileID: 212008964}
+  supportLifeButton: {fileID: 0}
+  closeButton: {fileID: 503122184}
+  objectUI: {fileID: 701413606}
+  playerWallet: {fileID: 1515392641}
+  upgradeTree:
+  - upgradeName: 
+    actualRankUpgrade: 0
+    actualBonusText: {fileID: 2607262617649944819}
+    nextBonusText: {fileID: 2607262617649944818}
+    costText: {fileID: 2607262617649944817}
+    rankUpgrades:
+    - bonus: 5
+      cost: 5
+    - bonus: 10
+      cost: 10
+  - upgradeName: 
+    actualRankUpgrade: 0
+    actualBonusText: {fileID: 728728563}
+    nextBonusText: {fileID: 728728562}
+    costText: {fileID: 728728561}
+    rankUpgrades:
+    - bonus: 6
+      cost: 1
+    - bonus: 10
+      cost: 10
+  - upgradeName: 
+    actualRankUpgrade: 0
+    actualBonusText: {fileID: 1724548532}
+    nextBonusText: {fileID: 1724548531}
+    costText: {fileID: 1724548530}
+    rankUpgrades:
+    - bonus: 50
+      cost: 20
+    - bonus: 10
+      cost: 10
+  - upgradeName: 
+    actualRankUpgrade: 0
+    actualBonusText: {fileID: 536107597}
+    nextBonusText: {fileID: 464653787}
+    costText: {fileID: 1747155425}
+    rankUpgrades:
+    - bonus: 5
+      cost: 5
+    - bonus: 10
+      cost: 10
 --- !u!1 &582357171
 GameObject:
   m_ObjectHideFlags: 0
@@ -2845,7 +2845,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1204743685}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 2.51, z: 24.83}
+  m_LocalPosition: {x: 0, y: 2.51, z: 22.12}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -2866,7 +2866,19 @@ MonoBehaviour:
   playOnStart: 0
   eventToTrigger:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1204743688}
+        m_TargetAssemblyTypeName: SceneLoader, Assembly-CSharp
+        m_MethodName: LoadScene
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: level1
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1204743688
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2906,23 +2918,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4251502071772646443, guid: 9c827a3e71b82094592be1a5bccc19d9, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4251502071772646454, guid: 9c827a3e71b82094592be1a5bccc19d9, type: 3}
       propertyPath: m_RootOrder
-      value: 11
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 4251502071772646454, guid: 9c827a3e71b82094592be1a5bccc19d9, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 2.83
       objectReference: {fileID: 0}
     - target: {fileID: 4251502071772646454, guid: 9c827a3e71b82094592be1a5bccc19d9, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 0.02
       objectReference: {fileID: 0}
     - target: {fileID: 4251502071772646454, guid: 9c827a3e71b82094592be1a5bccc19d9, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 3.75
       objectReference: {fileID: 0}
     - target: {fileID: 4251502071772646454, guid: 9c827a3e71b82094592be1a5bccc19d9, type: 3}
       propertyPath: m_LocalRotation.w
@@ -2952,6 +2964,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4251502071772646455, guid: 9c827a3e71b82094592be1a5bccc19d9, type: 3}
+      propertyPath: dontDestroy
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4931168045367752954, guid: 9c827a3e71b82094592be1a5bccc19d9, type: 3}
+      propertyPath: cashText
+      value: 
+      objectReference: {fileID: 936789685}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9c827a3e71b82094592be1a5bccc19d9, type: 3}
 --- !u!1 &1397385013
@@ -4397,7 +4417,7 @@ PrefabInstance:
     - target: {fileID: 1515392641, guid: 223ed752f608c4f4b87a68f3643b0297, type: 3}
       propertyPath: cashText
       value: 
-      objectReference: {fileID: 936789685}
+      objectReference: {fileID: 0}
     - target: {fileID: 9182656770977135181, guid: 223ed752f608c4f4b87a68f3643b0297, type: 3}
       propertyPath: m_RootOrder
       value: 6
@@ -4448,7 +4468,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9182656770977135184, guid: 223ed752f608c4f4b87a68f3643b0297, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 223ed752f608c4f4b87a68f3643b0297, type: 3}

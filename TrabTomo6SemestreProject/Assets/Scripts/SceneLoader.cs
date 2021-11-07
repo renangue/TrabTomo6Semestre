@@ -43,6 +43,4 @@ public class SceneLoader : MonoBehaviour
             yield return null;
         }
     }
-
-   
 }

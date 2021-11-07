@@ -6,8 +6,20 @@ using UnityEngine.UI;
 public class Wallet : MonoBehaviour
 {
     public static int cash = 20;
-    public int diamonds;
+
     public Text cashText;
+
+    //private GameObject cashText;
+
+
+
+    //Text cashLabel;
+
+    private void OnEnable()
+    {
+        //cashText = GameObject.Find("CashText");
+        //cashText = cashText.GetComponent<Text>();
+    }
 
     private void Update()
     {

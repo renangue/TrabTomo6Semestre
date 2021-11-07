@@ -13,7 +13,7 @@ public class CoinSpawner : MonoBehaviour
         foreach (GameObject coin in coinPrefabs)
         {
             offset = new Vector3(Random.Range(-1, 1f), 1, Random.Range(-1, 1f));
-            
+
             Instantiate(coin, transform.position + offset, Quaternion.identity);
         }
     }
