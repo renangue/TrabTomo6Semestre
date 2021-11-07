@@ -82,9 +82,4 @@ public class NPC : MonoBehaviour
                 coinSpawner.Spawn();
         }
     }
-
-    public void ResetPos(Transform target)
-    {
-        transform.position = target.position;
-    }
 }
