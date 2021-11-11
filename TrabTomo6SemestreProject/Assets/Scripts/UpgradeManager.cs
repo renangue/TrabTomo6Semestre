@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class UpgradeManager : MonoBehaviour
 {
-    //public static UpgradeManager instance;
+    public static UpgradeManager instance;
 
     public NPCStats stats;
     
@@ -27,18 +27,18 @@ public class UpgradeManager : MonoBehaviour
     
     public Upgrade[] upgradeTree;
 
-    //private void Awake()
-    //{
-    //    if (instance != null)
-    //    {
-    //        DestroyImmediate(gameObject);
-    //    }
-    //    else
-    //    {
-    //        DontDestroyOnLoad(gameObject);
-    //        instance = this;
-    //    }
-    //}
+    private void Awake()
+    {
+        if (instance != null)
+        {
+            DestroyImmediate(gameObject);
+        }
+        else
+        {
+            DontDestroyOnLoad(gameObject);
+            instance = this;
+        }
+    }
 
     void Start()
     {
