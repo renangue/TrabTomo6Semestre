@@ -2599,8 +2599,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dontDestroy: 1
   stats: {fileID: 11400000, guid: c5b4a90ef9d55564fbd430c63799d70d, type: 2}
-  muzzle: {fileID: 9182656769293168349}
-  bullet: {fileID: 661769143325968779, guid: f406006aaa72b85429e3c63c5f5fc5d8, type: 3}
+  muzzle: {fileID: 0}
+  bullet: {fileID: 0}
   animator: {fileID: 8377850877741959539}
   lifeBar: {fileID: 4215714208852722067}
   target: {fileID: 0}

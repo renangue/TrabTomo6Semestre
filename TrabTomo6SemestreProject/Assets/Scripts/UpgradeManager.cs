@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class UpgradeManager : MonoBehaviour
 {
-    public static UpgradeManager instance;
+    //public static UpgradeManager instance;
 
     public NPCStats stats;
     
@@ -27,20 +27,18 @@ public class UpgradeManager : MonoBehaviour
     
     public Upgrade[] upgradeTree;
 
-    
-
-    private void Awake()
-    {
-        if (instance != null)
-        {
-            DestroyImmediate(gameObject);
-        }
-        else
-        {
-            DontDestroyOnLoad(gameObject);
-            instance = this;
-        }
-    }
+    //private void Awake()
+    //{
+    //    if (instance != null)
+    //    {
+    //        DestroyImmediate(gameObject);
+    //    }
+    //    else
+    //    {
+    //        DontDestroyOnLoad(gameObject);
+    //        instance = this;
+    //    }
+    //}
 
     void Start()
     {
@@ -48,6 +46,8 @@ public class UpgradeManager : MonoBehaviour
         SetTexts(1);
         SetTexts(2);
         SetTexts(3);
+
+        Time.timeScale = 0;
 
     }
 
@@ -68,7 +68,7 @@ public class UpgradeManager : MonoBehaviour
     {
         Upgrade upgrade = upgradeTree[index];
         upgrade.actualBonusText.text = stats.life.ToString();
-        upgrade.costText.text = "$" + upgrade.rankUpgrades[upgrade.actualRankUpgrade].cost.ToString();
+        upgrade.costText.text = upgrade.rankUpgrades[upgrade.actualRankUpgrade].cost.ToString();
         upgrade.nextBonusText.text = (stats.life + upgrade.rankUpgrades[upgrade.actualRankUpgrade].bonus).ToString();
     }
 
@@ -84,7 +84,7 @@ public class UpgradeManager : MonoBehaviour
                 if (upgrade.actualRankUpgrade < upgrade.rankUpgrades.Length)
                 {
                     upgrade.actualBonusText.text = stats.life.ToString();
-                    upgrade.costText.text = "$" + upgrade.rankUpgrades[upgrade.actualRankUpgrade].cost.ToString();
+                    upgrade.costText.text = upgrade.rankUpgrades[upgrade.actualRankUpgrade].cost.ToString();
                     upgrade.nextBonusText.text = (stats.life + upgrade.rankUpgrades[upgrade.actualRankUpgrade].bonus).ToString();
                 }
                 else
@@ -109,7 +109,7 @@ public class UpgradeManager : MonoBehaviour
                 if (upgrade.actualRankUpgrade < upgrade.rankUpgrades.Length)
                 {
                     upgrade.actualBonusText.text = stats.life.ToString();
-                    upgrade.costText.text = "$" + upgrade.rankUpgrades[upgrade.actualRankUpgrade].cost.ToString();
+                    upgrade.costText.text = upgrade.rankUpgrades[upgrade.actualRankUpgrade].cost.ToString();
                     upgrade.nextBonusText.text = (stats.speed + upgrade.rankUpgrades[upgrade.actualRankUpgrade].bonus).ToString();
                 }
                 else
@@ -134,7 +134,7 @@ public class UpgradeManager : MonoBehaviour
                 if (upgrade.actualRankUpgrade < upgrade.rankUpgrades.Length)
                 {
                     upgrade.actualBonusText.text = stats.life.ToString();
-                    upgrade.costText.text = "$" + upgrade.rankUpgrades[upgrade.actualRankUpgrade].cost.ToString();
+                    upgrade.costText.text = upgrade.rankUpgrades[upgrade.actualRankUpgrade].cost.ToString();
                     upgrade.nextBonusText.text = (stats.damagePower + upgrade.rankUpgrades[upgrade.actualRankUpgrade].bonus).ToString();
                 }
                 else
@@ -159,7 +159,7 @@ public class UpgradeManager : MonoBehaviour
                 if (upgrade.actualRankUpgrade < upgrade.rankUpgrades.Length)
                 {
                     upgrade.actualBonusText.text = stats.life.ToString();
-                    upgrade.costText.text = "$" + upgrade.rankUpgrades[upgrade.actualRankUpgrade].cost.ToString();
+                    upgrade.costText.text = upgrade.rankUpgrades[upgrade.actualRankUpgrade].cost.ToString();
                     upgrade.nextBonusText.text = (stats.fireRate + upgrade.rankUpgrades[upgrade.actualRankUpgrade].bonus).ToString();
                 }
                 else
@@ -208,6 +208,8 @@ public class UpgradeManager : MonoBehaviour
     public void CloseWindow()
     {
         objectUI.SetActive(false);
+
+        Time.timeScale = 1;
     }
 }
 [System.Serializable]
