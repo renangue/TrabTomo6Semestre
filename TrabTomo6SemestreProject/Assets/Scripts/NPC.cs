@@ -13,7 +13,7 @@ public class NPC : MonoBehaviour
     public Image lifeBar;
 
     private CoinSpawner coinSpawner;
-
+    
     [HideInInspector]
     public GameObject target;
 
@@ -34,7 +34,9 @@ public class NPC : MonoBehaviour
         else
         {
             combat.children.Add(new BTMoveToEnemy());
-            combat.children.Add(new BTAttackEnemy());
+            combat.children.Add(new BTMeleeAttack());
+            
+            //combat.children.Add(new BTAttackEnemy());
         }
         
         BehaviourTree bt = GetComponent<BehaviourTree>();
@@ -81,5 +83,12 @@ public class NPC : MonoBehaviour
             if (currentLife <= 0)
                 coinSpawner.Spawn();
         }
+    }
+
+    public void Attack()
+    {
+        target.GetComponent<NPC>().ReceiveDamageOrLife(-stats.damagePower);
+
+        print("Atacou");
     }
 }
