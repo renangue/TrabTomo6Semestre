@@ -35,8 +35,9 @@ public class NPC : MonoBehaviour
         {
             combat.children.Add(new BTMoveToEnemy());
             combat.children.Add(new BTMeleeAttack());
-            
-            //combat.children.Add(new BTAttackEnemy());
+
+            if(stats.type == NPCStats.Type.RANGED)
+                combat.children.Add(new BTAttackEnemy());
         }
         
         BehaviourTree bt = GetComponent<BehaviourTree>();
@@ -50,16 +51,16 @@ public class NPC : MonoBehaviour
         currentLife = life;
 
         bullet.GetComponent<Bullet>().SetStat(stats);
-
-        if(dontDestroy)
-        {
-            DontDestroyOnLoad(gameObject);
-        }
     }
 
     private void OnEnable()
     {
         coinSpawner = GetComponent<CoinSpawner>();
+
+        if (dontDestroy)
+        {
+            DontDestroyOnLoad(gameObject);
+        }
     }
 
     private void Update()
