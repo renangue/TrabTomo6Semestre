@@ -16,6 +16,9 @@ public class BTMoveToEnemy : BTNode
 
         while (npc.target)
         {
+            npc.animator.SetBool("Attack", false);
+            npc.animator.speed = npc.stats.speed * 0.5f;
+
             if(Vector3.Distance(npc.transform.position, npc.target.transform.position) < npc.stats.attackRange)
             {
                 status = Status.SUCCESS;

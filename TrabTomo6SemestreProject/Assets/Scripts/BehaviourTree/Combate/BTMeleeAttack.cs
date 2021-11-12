@@ -16,9 +16,11 @@ public class BTMeleeAttack : BTNode
         {
             npc.transform.LookAt(npc.target.transform);
 
+            npc.animator.speed = npc.stats.fireRate;
+
             npc.animator.SetBool("Attack", true);
 
-            yield return new WaitForSeconds(npc.stats.fireRate);
+            yield return new WaitForSeconds(1f);
 
             status = Status.SUCCESS;
             break;
