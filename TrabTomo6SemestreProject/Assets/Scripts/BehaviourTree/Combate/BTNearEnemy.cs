@@ -25,7 +25,7 @@ public class BTNearEnemy : BTNode
             }
         }
 
-        Print(bt);
+        //Print(bt);
         
         yield break;
     }

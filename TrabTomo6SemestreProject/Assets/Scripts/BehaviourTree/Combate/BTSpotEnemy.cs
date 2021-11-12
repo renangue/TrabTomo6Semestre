@@ -39,7 +39,7 @@ public class BTSpotEnemy : BTNode
             status = Status.FAILURE;
         }
 
-        Print(bt);
+        //Print(bt);
         
         yield break;
     }

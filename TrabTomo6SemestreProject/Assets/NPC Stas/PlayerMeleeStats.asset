@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: PlayerMeleeStats
   m_EditorClassIdentifier: 
   targetTag: Enemy
-  type: 1
+  type: 0
   life: 10
   speed: 2
   spotEnemyDistance: 1000

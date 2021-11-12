@@ -9,7 +9,7 @@ public class BTMoveToEnemy : BTNode
     {
         status = Status.RUNNING;
 
-        Print(bt);
+        //Print(bt);
 
         NPC npc = bt.GetComponent<NPC>();
         NavMeshAgent agent = bt.GetComponent<NavMeshAgent>();
@@ -36,6 +36,6 @@ public class BTMoveToEnemy : BTNode
 
         if (status == Status.RUNNING) status = Status.FAILURE;
         
-        Print(bt);
+        //Print(bt);
     }
 }
