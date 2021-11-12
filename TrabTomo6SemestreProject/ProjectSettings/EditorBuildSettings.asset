@@ -42,12 +42,30 @@ EditorBuildSettings:
     path: Assets/Scenes/level11.unity
     guid: fe6521ffc2c249c49bfef62256fd1f42
   - enabled: 1
+    path: Assets/Scenes/level12.unity
+    guid: 087aece83c53a5b4fb159acda8bdf1b9
+  - enabled: 1
+    path: Assets/Scenes/level13.unity
+    guid: 7a22161350ed3364e92b902006793043
+  - enabled: 1
+    path: Assets/Scenes/level14.unity
+    guid: e28abb529a990aa41ad8cb3ce813d8ac
+  - enabled: 1
+    path: Assets/Scenes/level15.unity
+    guid: 6811e79a1e351e84b8dd090052404855
+  - enabled: 1
     path: Assets/Scenes/level16.unity
     guid: 3ce18d24536f71844aee87cd3242520c
-  - enabled: 0
-    path: Assets/Scenes/Teste.unity
-    guid: 1aa0b3428ca36574798776bf272cb3ba
-  - enabled: 0
-    path: Assets/Scenes/Outros/SampleScene.unity
-    guid: d1c3109bdb54ad54c8a2b2838528e640
+  - enabled: 1
+    path: Assets/Scenes/level17.unity
+    guid: f310dcb5e18eb604c925f4436a406c93
+  - enabled: 1
+    path: Assets/Scenes/level18.unity
+    guid: f4b60aa285c2e834bb7106bfc326d367
+  - enabled: 1
+    path: Assets/Scenes/level19.unity
+    guid: b64a6aee75432a946be8657a7436a11b
+  - enabled: 1
+    path: Assets/Scenes/level20.unity
+    guid: 36f0a0d79086b2e42a14234fe3261512
   m_configObjects: {}
