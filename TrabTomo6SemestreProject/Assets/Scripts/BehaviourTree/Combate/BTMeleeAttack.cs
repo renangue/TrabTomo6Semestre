@@ -8,11 +8,11 @@ public class BTMeleeAttack : BTNode
     {
         status = Status.RUNNING;
 
-        Print(bt);
+        //Print(bt);
 
         NPC npc = bt.GetComponent<NPC>();
 
-        if (npc.target)
+        while (npc.target)
         {
             npc.transform.LookAt(npc.target.transform);
 
@@ -21,10 +21,11 @@ public class BTMeleeAttack : BTNode
             yield return new WaitForSeconds(npc.stats.fireRate);
 
             status = Status.SUCCESS;
+            break;
         }
-        else
-            status = Status.FAILURE;
 
-        Print(bt);
+        if(status == Status.RUNNING) status = Status.FAILURE;
+
+        //Print(bt);
     }
 }

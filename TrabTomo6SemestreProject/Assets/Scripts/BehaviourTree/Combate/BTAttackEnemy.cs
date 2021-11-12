@@ -8,7 +8,7 @@ public class BTAttackEnemy : BTNode
     {
         status = Status.RUNNING;
 
-        Print(bt);
+        //Print(bt);
 
         NPC npc = bt.GetComponent<NPC>();
 
@@ -35,6 +35,6 @@ public class BTAttackEnemy : BTNode
 
         if (status == Status.RUNNING) status = Status.FAILURE;;
        
-        Print(bt);
+        //Print(bt);
     }
 }

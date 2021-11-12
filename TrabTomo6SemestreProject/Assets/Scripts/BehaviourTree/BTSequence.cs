@@ -10,7 +10,7 @@ public class BTSequence : BTNode
     {
         status = Status.RUNNING;
 
-        Print(bt);
+        //Print(bt);
 
         foreach (BTNode node in children)
         {
@@ -25,7 +25,7 @@ public class BTSequence : BTNode
 
             if (status == Status.RUNNING) status = Status.SUCCESS;
 
-            Print(bt);
+            //Print(bt);
         }
     }
 }
