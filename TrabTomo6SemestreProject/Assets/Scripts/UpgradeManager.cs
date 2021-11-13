@@ -7,6 +7,8 @@ public class UpgradeManager : MonoBehaviour
 {
     public static UpgradeManager instance;
 
+    public NPC[] players;
+
     public NPCStats stats;
     
     public Button speedButton;
@@ -23,7 +25,6 @@ public class UpgradeManager : MonoBehaviour
     
     public GameObject objectUI;
 
-    [HideInInspector]
     public Wallet[] playerWallet;
     
     public Upgrade[] upgradeTree;
@@ -43,16 +44,33 @@ public class UpgradeManager : MonoBehaviour
 
     void Start()
     {
+    
+        Time.timeScale = 0;    
+    }
+
+    public void Setup()
+    {
+        if(players[0].gameObject.activeSelf)
+        {
+            stats = players[0].stats;
+        }
+
+        if (players[1].gameObject.activeSelf)
+        {
+            stats = players[1].stats;
+        }
+
         SetSpeed(0);
         SetDamage(1);
         SetFireRate(2);
         SetLife(3);
 
-        Time.timeScale = 0;
+        playerWallet = FindObjectsOfType<Wallet>();
     }
 
     void OnEnable()
     {
+
         speedButton.onClick.AddListener(delegate { UpgradeSpeed(0); });
         damagePowerButton.onClick.AddListener(delegate { UpgradeDamage(1); });
         fireRateButton.onClick.AddListener(delegate { UpgradeFireRate(2); });
@@ -61,11 +79,9 @@ public class UpgradeManager : MonoBehaviour
 
         closeButton.onClick.AddListener(delegate { CloseWindow(); });
 
-
-        playerWallet = FindObjectsOfType<Wallet>();
     }
 
-    public void SetLife(int index)
+    void SetLife(int index)
     {
         Upgrade upgrade = upgradeTree[index];
         upgrade.actualBonusText.text = stats.life.ToString();
@@ -73,7 +89,7 @@ public class UpgradeManager : MonoBehaviour
         upgrade.nextBonusText.text = (stats.life + upgrade.rankUpgrades[upgrade.actualRankUpgrade].bonus).ToString();
     }
 
-    public void SetSpeed(int index)
+    void SetSpeed(int index)
     {
         Upgrade upgrade = upgradeTree[index];
         upgrade.actualBonusText.text = stats.speed.ToString();
@@ -81,7 +97,7 @@ public class UpgradeManager : MonoBehaviour
         upgrade.nextBonusText.text = (stats.speed + upgrade.rankUpgrades[upgrade.actualRankUpgrade].bonus).ToString();
     }
 
-    public void SetDamage(int index)
+    void SetDamage(int index)
     {
         Upgrade upgrade = upgradeTree[index];
         upgrade.actualBonusText.text = stats.damagePower.ToString();
@@ -89,7 +105,7 @@ public class UpgradeManager : MonoBehaviour
         upgrade.nextBonusText.text = (stats.damagePower + upgrade.rankUpgrades[upgrade.actualRankUpgrade].bonus).ToString();
     }
 
-    public void SetFireRate(int index)
+    void SetFireRate(int index)
     {
         Upgrade upgrade = upgradeTree[index];
         upgrade.actualBonusText.text = stats.fireRate.ToString();
@@ -105,7 +121,7 @@ public class UpgradeManager : MonoBehaviour
     //    upgrade.nextBonusText.text = (stats.fireRate + upgrade.rankUpgrades[upgrade.actualRankUpgrade].bonus).ToString();
     //}
 
-    public void UpgradeLife(int index)
+    void UpgradeLife(int index)
     {
         Upgrade upgrade = upgradeTree[index];
         if (upgrade.actualRankUpgrade < upgrade.rankUpgrades.Length)
@@ -130,7 +146,7 @@ public class UpgradeManager : MonoBehaviour
         }
     }
 
-    public void UpgradeSpeed(int index)
+    void UpgradeSpeed(int index)
     {
         Upgrade upgrade = upgradeTree[index];
         if (upgrade.actualRankUpgrade < upgrade.rankUpgrades.Length)
@@ -155,7 +171,7 @@ public class UpgradeManager : MonoBehaviour
         }
     }
 
-    public void UpgradeDamage(int index)
+    void UpgradeDamage(int index)
     {
         Upgrade upgrade = upgradeTree[index];
         if (upgrade.actualRankUpgrade < upgrade.rankUpgrades.Length)
@@ -180,7 +196,7 @@ public class UpgradeManager : MonoBehaviour
         }
     }
 
-    public void UpgradeFireRate(int index)
+    void UpgradeFireRate(int index)
     {
         Upgrade upgrade = upgradeTree[index];
         if (upgrade.actualRankUpgrade < upgrade.rankUpgrades.Length)
@@ -205,35 +221,35 @@ public class UpgradeManager : MonoBehaviour
         }
     }
 
-    public void IncreaseDamage(int cost, float bonus)
+    void IncreaseDamage(int cost, float bonus)
     {
         stats.damagePower += bonus;
 
         SpentCash(-cost);
     }
 
-    public void IncreaseFireRate(int cost, float bonus)
+    void IncreaseFireRate(int cost, float bonus)
     {
         stats.fireRate *= bonus/100;
 
         SpentCash(-cost);
     }
 
-    public void IncreaseSpeed(int cost, float bonus)
+    void IncreaseSpeed(int cost, float bonus)
     {
         stats.speed += bonus;
 
         SpentCash(-cost);
     }
 
-    public void IncreaseLife(int cost, int bonus)
+    void IncreaseLife(int cost, int bonus)
     {
         stats.life += bonus;
 
         SpentCash(-cost);
     }
 
-    public void SpentCash(int amount)
+    void SpentCash(int amount)
     {
         foreach (Wallet wallet in playerWallet)
         {
@@ -242,7 +258,7 @@ public class UpgradeManager : MonoBehaviour
         
     }
 
-    public void CloseWindow()
+    void CloseWindow()
     {
         objectUI.SetActive(false);
 
