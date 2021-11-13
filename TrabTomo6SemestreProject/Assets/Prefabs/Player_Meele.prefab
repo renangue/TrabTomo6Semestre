@@ -2654,7 +2654,7 @@ GameObject:
   - component: {fileID: 9182656770977135185}
   - component: {fileID: 1673493298}
   - component: {fileID: 1515392641}
-  - component: {fileID: 82195649}
+  - component: {fileID: 5285904451398692345}
   m_Layer: 0
   m_Name: Player_Meele
   m_TagString: Player
@@ -2796,7 +2796,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cashText: {fileID: 0}
---- !u!114 &82195649
+--- !u!114 &5285904451398692345
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

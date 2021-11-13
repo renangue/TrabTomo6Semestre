@@ -24,7 +24,7 @@ public class UpgradeManager : MonoBehaviour
     public GameObject objectUI;
 
     [HideInInspector]
-    public Wallet playerWallet;
+    public Wallet[] playerWallet;
     
     public Upgrade[] upgradeTree;
 
@@ -62,7 +62,7 @@ public class UpgradeManager : MonoBehaviour
         closeButton.onClick.AddListener(delegate { CloseWindow(); });
 
 
-        playerWallet = FindObjectOfType<Wallet>();
+        playerWallet = FindObjectsOfType<Wallet>();
     }
 
     public void SetLife(int index)
@@ -235,7 +235,11 @@ public class UpgradeManager : MonoBehaviour
 
     public void SpentCash(int amount)
     {
-        playerWallet.UpdateCash(amount);
+        foreach (Wallet wallet in playerWallet)
+        {
+            wallet.UpdateCash(amount);
+        }
+        
     }
 
     public void CloseWindow()

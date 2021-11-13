@@ -9,12 +9,6 @@ public class Wallet : MonoBehaviour
 
     public Text cashText;
 
-    //private GameObject cashText;
-
-
-
-    //Text cashLabel;
-
     private void OnEnable()
     {
         //cashText = GameObject.Find("CashText");
