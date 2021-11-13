@@ -16,7 +16,7 @@ public class BTMeleeAttack : BTNode
         {
             npc.transform.LookAt(npc.target.transform);
 
-            npc.animator.speed = npc.stats.fireRate;
+            npc.animator.speed = npc.stats.fireRate * 0.5f;
 
             npc.animator.SetBool("Attack", true);
 

@@ -23,6 +23,7 @@ public class UpgradeManager : MonoBehaviour
     
     public GameObject objectUI;
 
+    [HideInInspector]
     public Wallet playerWallet;
     
     public Upgrade[] upgradeTree;
@@ -42,21 +43,21 @@ public class UpgradeManager : MonoBehaviour
 
     void Start()
     {
-        SetTexts(0);
-        SetTexts(1);
-        SetTexts(2);
-        SetTexts(3);
+        SetSpeed(0);
+        SetDamage(1);
+        SetFireRate(2);
+        SetLife(3);
 
         Time.timeScale = 0;
-
     }
 
     void OnEnable()
     {
-        lifeButton.onClick.AddListener(delegate { UpgradeLife(3); });
         speedButton.onClick.AddListener(delegate { UpgradeSpeed(0); });
         damagePowerButton.onClick.AddListener(delegate { UpgradeDamage(1); });
         fireRateButton.onClick.AddListener(delegate { UpgradeFireRate(2); });
+        lifeButton.onClick.AddListener(delegate { UpgradeLife(3); });
+        supportLifeButton.onClick.AddListener(delegate { UpgradeLife(4); });
 
         closeButton.onClick.AddListener(delegate { CloseWindow(); });
 
@@ -64,13 +65,45 @@ public class UpgradeManager : MonoBehaviour
         playerWallet = FindObjectOfType<Wallet>();
     }
 
-    public void SetTexts(int index)
+    public void SetLife(int index)
     {
         Upgrade upgrade = upgradeTree[index];
         upgrade.actualBonusText.text = stats.life.ToString();
         upgrade.costText.text = upgrade.rankUpgrades[upgrade.actualRankUpgrade].cost.ToString();
         upgrade.nextBonusText.text = (stats.life + upgrade.rankUpgrades[upgrade.actualRankUpgrade].bonus).ToString();
     }
+
+    public void SetSpeed(int index)
+    {
+        Upgrade upgrade = upgradeTree[index];
+        upgrade.actualBonusText.text = stats.speed.ToString();
+        upgrade.costText.text = upgrade.rankUpgrades[upgrade.actualRankUpgrade].cost.ToString();
+        upgrade.nextBonusText.text = (stats.speed + upgrade.rankUpgrades[upgrade.actualRankUpgrade].bonus).ToString();
+    }
+
+    public void SetDamage(int index)
+    {
+        Upgrade upgrade = upgradeTree[index];
+        upgrade.actualBonusText.text = stats.damagePower.ToString();
+        upgrade.costText.text = upgrade.rankUpgrades[upgrade.actualRankUpgrade].cost.ToString();
+        upgrade.nextBonusText.text = (stats.damagePower + upgrade.rankUpgrades[upgrade.actualRankUpgrade].bonus).ToString();
+    }
+
+    public void SetFireRate(int index)
+    {
+        Upgrade upgrade = upgradeTree[index];
+        upgrade.actualBonusText.text = stats.fireRate.ToString();
+        upgrade.costText.text = upgrade.rankUpgrades[upgrade.actualRankUpgrade].cost.ToString();
+        upgrade.nextBonusText.text = (stats.fireRate + upgrade.rankUpgrades[upgrade.actualRankUpgrade].bonus).ToString();
+    }
+
+    //public void SetSupportLife(int index)
+    //{
+    //    Upgrade upgrade = upgradeTree[index];
+    //    upgrade.actualBonusText.text = stats.fireRate.ToString();
+    //    upgrade.costText.text = upgrade.rankUpgrades[upgrade.actualRankUpgrade].cost.ToString();
+    //    upgrade.nextBonusText.text = (stats.fireRate + upgrade.rankUpgrades[upgrade.actualRankUpgrade].bonus).ToString();
+    //}
 
     public void UpgradeLife(int index)
     {
