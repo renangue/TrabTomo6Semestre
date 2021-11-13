@@ -3398,6 +3398,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: DefeatScreen
       objectReference: {fileID: 0}
+    - target: {fileID: 1018968043450881792, guid: 49f4c53262a2cee4b9af055af74d82c7, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1018968043450881820, guid: 49f4c53262a2cee4b9af055af74d82c7, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -3497,7 +3501,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 376050340175324839, guid: ff4276abe9996b44aac69baaed30ef82, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4543594747677597881, guid: ff4276abe9996b44aac69baaed30ef82, type: 3}
       propertyPath: m_Pivot.x
