@@ -14,8 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targetTag: Player
   type: 0
-  life: 2
+  life: 10
   speed: 2
   spotEnemyDistance: 50
+  attackRange: 3
   fireRate: 2
+  damagePower: 5
   bulletSpeed: 200
