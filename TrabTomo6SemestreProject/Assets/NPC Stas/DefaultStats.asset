@@ -14,10 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targetTag: Enemy
   type: 0
-  life: 10
+  life: 100
   speed: 2
-  spotEnemyDistance: 10
+  spotEnemyDistance: 100
   attackRange: 8
   fireRate: 2
-  damagePower: 50
+  damagePower: 15
   bulletSpeed: 1000
