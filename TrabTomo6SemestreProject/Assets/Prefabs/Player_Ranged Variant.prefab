@@ -57,6 +57,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3695857dddefeb540b977be32eb447ea, type: 3}
+--- !u!95 &7315916180793769629 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 5484545418860190217, guid: 3695857dddefeb540b977be32eb447ea, type: 3}
+  m_PrefabInstance: {fileID: 2997811861683365012}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &3635617088403175820
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1724,7 +1729,7 @@ PrefabInstance:
     - target: {fileID: 9182656770977135180, guid: 223ed752f608c4f4b87a68f3643b0297, type: 3}
       propertyPath: stats
       value: 
-      objectReference: {fileID: 11400000, guid: 280644c70a68d504787e701f07d2bf5a, type: 2}
+      objectReference: {fileID: 11400000, guid: 7ffca172fdc321741a8e45c27cbfb3ad, type: 2}
     - target: {fileID: 9182656770977135180, guid: 223ed752f608c4f4b87a68f3643b0297, type: 3}
       propertyPath: bullet
       value: 
@@ -1733,6 +1738,10 @@ PrefabInstance:
       propertyPath: muzzle
       value: 
       objectReference: {fileID: 4251502070764132518}
+    - target: {fileID: 9182656770977135180, guid: 223ed752f608c4f4b87a68f3643b0297, type: 3}
+      propertyPath: animator
+      value: 
+      objectReference: {fileID: 7315916180793769629}
     - target: {fileID: 9182656770977135180, guid: 223ed752f608c4f4b87a68f3643b0297, type: 3}
       propertyPath: m_Enabled
       value: 1

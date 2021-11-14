@@ -19,5 +19,5 @@ MonoBehaviour:
   spotEnemyDistance: 100
   attackRange: 8
   fireRate: 2
-  damagePower: 15
-  bulletSpeed: 200
+  damagePower: 8
+  bulletSpeed: 300

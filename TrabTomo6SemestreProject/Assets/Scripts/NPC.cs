@@ -11,30 +11,39 @@ public class NPC : MonoBehaviour
     public GameObject bullet;
     public Animator animator;
     public Image lifeBar;
+    public GameObject gameOverScreen;
 
     private CoinSpawner coinSpawner;
    
+    [HideInInspector]
     public GameObject target;
 
     private float life;
     private float currentLife;
-    public static float currentSavedLife;
+    private Vector3 firstPos;
 
     void Start()
     {
+        
+    }
+
+    private void OnEnable()
+    {
+        coinSpawner = GetComponent<CoinSpawner>();
+
         BTSequence combat = new BTSequence();
         combat.children.Add(new BTNearEnemy());
         combat.children.Add(new BTSpotEnemy());
-        
-        if(gameObject.CompareTag("Enemy") && stats.type == NPCStats.Type.RANGED)
+
+        if (gameObject.CompareTag("Enemy") && stats.type == NPCStats.Type.RANGED)
         {
             combat.children.Add(new BTAttackEnemy());
         }
         else
         {
             combat.children.Add(new BTMoveToEnemy());
-           
-            if(stats.type == NPCStats.Type.RANGED)
+
+            if (stats.type == NPCStats.Type.RANGED)
                 combat.children.Add(new BTAttackEnemy());
 
             else
@@ -43,7 +52,7 @@ public class NPC : MonoBehaviour
                 Debug.Log(name + " Vai atacar");
             }
         }
-        
+
         BehaviourTree bt = GetComponent<BehaviourTree>();
 
         bt.root = combat;
@@ -55,24 +64,28 @@ public class NPC : MonoBehaviour
         currentLife = life;
 
         bullet.GetComponent<Bullet>().SetStat(stats);
+
+        firstPos = transform.position;
     }
 
-    private void OnEnable()
+    private void OnDisable()
     {
-        coinSpawner = GetComponent<CoinSpawner>();
-
-        if (dontDestroy)
+        if(gameObject.CompareTag("Player"))
         {
-            DontDestroyOnLoad(gameObject);
-        }
+            Heal();
+
+            transform.position = firstPos;
+        }   
     }
 
     private void Update()
     {
-        if (currentLife <= 0)
-        {
-            Destroy(gameObject);
-        }
+        CheckLife();
+    }
+
+    public void DontDestroy()
+    {
+        DontDestroyOnLoad(gameObject);     
     }
 
     public void ReceiveDamageOrLife(float amount)
@@ -89,11 +102,31 @@ public class NPC : MonoBehaviour
                 coinSpawner.Spawn();
         }
     }
+    
+    public void Heal()
+    {
+        currentLife = life;
+        lifeBar.fillAmount = life;
+    }
 
     public void Attack()
     {
         target.GetComponent<NPC>().ReceiveDamageOrLife(-stats.damagePower);
 
         print(name + " Atacou");
+    }
+
+    void CheckLife()
+    {
+        if (currentLife <= 0)
+        {
+            gameObject.SetActive(false);
+
+            if (gameObject.CompareTag("Player"))
+            {
+                gameOverScreen.SetActive(true);
+                Time.timeScale = 0;
+            }
+        }
     }
 }

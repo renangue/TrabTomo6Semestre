@@ -13,7 +13,7 @@ public class SetFollowTarget : MonoBehaviour
 
     void Start()
     {
-        virtualCamera = GetComponent<CinemachineVirtualCamera>();
+        virtualCamera = FindObjectOfType<CinemachineVirtualCamera>();
 
         player = GameObject.FindGameObjectWithTag("Player");
 
@@ -21,6 +21,10 @@ public class SetFollowTarget : MonoBehaviour
             SetTarget();
     }
 
+    public void SetCamera()
+    {
+        virtualCamera = FindObjectOfType<CinemachineVirtualCamera>();
+    }
     public void SetTarget()
     {
         virtualCamera.Follow = player.transform;

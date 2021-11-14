@@ -44,7 +44,6 @@ public class UpgradeManager : MonoBehaviour
 
     void Start()
     {
-    
         Time.timeScale = 0;    
     }
 
@@ -157,13 +156,13 @@ public class UpgradeManager : MonoBehaviour
                 upgrade.actualRankUpgrade++;
                 if (upgrade.actualRankUpgrade < upgrade.rankUpgrades.Length)
                 {
-                    upgrade.actualBonusText.text = stats.life.ToString();
+                    upgrade.actualBonusText.text = stats.speed.ToString();
                     upgrade.costText.text = upgrade.rankUpgrades[upgrade.actualRankUpgrade].cost.ToString();
                     upgrade.nextBonusText.text = (stats.speed + upgrade.rankUpgrades[upgrade.actualRankUpgrade].bonus).ToString();
                 }
                 else
                 {
-                    upgrade.actualBonusText.text = stats.life.ToString();
+                    upgrade.actualBonusText.text = stats.speed.ToString();
                     upgrade.costText.text = "";
                     upgrade.nextBonusText.text = "";
                 }
@@ -182,13 +181,13 @@ public class UpgradeManager : MonoBehaviour
                 upgrade.actualRankUpgrade++;
                 if (upgrade.actualRankUpgrade < upgrade.rankUpgrades.Length)
                 {
-                    upgrade.actualBonusText.text = stats.life.ToString();
+                    upgrade.actualBonusText.text = stats.damagePower.ToString();
                     upgrade.costText.text = upgrade.rankUpgrades[upgrade.actualRankUpgrade].cost.ToString();
                     upgrade.nextBonusText.text = (stats.damagePower + upgrade.rankUpgrades[upgrade.actualRankUpgrade].bonus).ToString();
                 }
                 else
                 {
-                    upgrade.actualBonusText.text = stats.life.ToString();
+                    upgrade.actualBonusText.text = stats.damagePower.ToString();
                     upgrade.costText.text = "";
                     upgrade.nextBonusText.text = "";
                 }
@@ -207,13 +206,13 @@ public class UpgradeManager : MonoBehaviour
                 upgrade.actualRankUpgrade++;
                 if (upgrade.actualRankUpgrade < upgrade.rankUpgrades.Length)
                 {
-                    upgrade.actualBonusText.text = stats.life.ToString();
+                    upgrade.actualBonusText.text = stats.fireRate.ToString();
                     upgrade.costText.text = upgrade.rankUpgrades[upgrade.actualRankUpgrade].cost.ToString();
                     upgrade.nextBonusText.text = (stats.fireRate + upgrade.rankUpgrades[upgrade.actualRankUpgrade].bonus).ToString();
                 }
                 else
                 {
-                    upgrade.actualBonusText.text = stats.life.ToString();
+                    upgrade.actualBonusText.text = stats.fireRate.ToString();
                     upgrade.costText.text = "";
                     upgrade.nextBonusText.text = "";
                 }
@@ -263,6 +262,14 @@ public class UpgradeManager : MonoBehaviour
         objectUI.SetActive(false);
 
         Time.timeScale = 1;
+    }
+
+    public void ResetRanks()
+    {
+        for (int i = 0; i < upgradeTree.Length; i++)
+        {
+            upgradeTree[i].actualRankUpgrade = 0;
+        }
     }
 }
 [System.Serializable]

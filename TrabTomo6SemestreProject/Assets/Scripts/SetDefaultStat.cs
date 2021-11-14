@@ -4,17 +4,16 @@ using UnityEngine;
 
 public class SetDefaultStat : MonoBehaviour
 {
-    public NPCStats defaultStats;
+    public NPC[] players;
 
-    private NPC npc;
-    // Start is called before the first frame update
-    void Awake()
+    public NPCStats[] defaultStats;
+
+    public void RestartStats()
     {
-        npc = GetComponent<NPC>();
+        players[0].stats.Setup(defaultStats[0]);
 
-        npc.stats.life = defaultStats.life;
-        npc.stats.speed = defaultStats.speed;
-        npc.stats.fireRate = defaultStats.fireRate;
-        npc.stats.damagePower = defaultStats.damagePower;
+        players[1].stats.Setup(defaultStats[1]);
+
+        print("restart");
     }
 }

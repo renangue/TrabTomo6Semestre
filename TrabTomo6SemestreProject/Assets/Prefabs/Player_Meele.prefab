@@ -2654,7 +2654,6 @@ GameObject:
   - component: {fileID: 9182656770977135185}
   - component: {fileID: 1673493298}
   - component: {fileID: 1515392641}
-  - component: {fileID: 5285904451398692345}
   m_Layer: 0
   m_Name: Player_Meele
   m_TagString: Player
@@ -2699,6 +2698,7 @@ MonoBehaviour:
   bullet: {fileID: 661769143325968779, guid: f406006aaa72b85429e3c63c5f5fc5d8, type: 3}
   animator: {fileID: 8377850877741959539}
   lifeBar: {fileID: 4215714208852722067}
+  gameOverScreen: {fileID: 0}
   target: {fileID: 0}
 --- !u!114 &9182656770977135183
 MonoBehaviour:
@@ -2796,16 +2796,3 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cashText: {fileID: 0}
---- !u!114 &5285904451398692345
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9182656770977135184}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6ef3148bbb245a74b893add22e1c292b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  defaultStats: {fileID: 11400000, guid: be8156e4320da5a4e93fc4d7c36f6a85, type: 2}
