@@ -119,6 +119,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 57d78de69bcaf8a4e969c0c3350b859b, type: 3}
+--- !u!1 &3634971539742476222 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1773656247975474, guid: 57d78de69bcaf8a4e969c0c3350b859b, type: 3}
+  m_PrefabInstance: {fileID: 3635617088403175820}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &4931168044123027067
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1726,6 +1731,10 @@ PrefabInstance:
       propertyPath: m_LocalRotation.y
       value: -0
       objectReference: {fileID: 0}
+    - target: {fileID: 8953013462144154876, guid: 223ed752f608c4f4b87a68f3643b0297, type: 3}
+      propertyPath: support
+      value: 
+      objectReference: {fileID: 3634971539742476222}
     - target: {fileID: 9182656770977135180, guid: 223ed752f608c4f4b87a68f3643b0297, type: 3}
       propertyPath: stats
       value: 

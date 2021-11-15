@@ -15,8 +15,9 @@ public class Bullet : MonoBehaviour
         if(other.CompareTag(targetTag))
         {
             other.GetComponent<NPC>().ReceiveDamageOrLife(-stats.damagePower);
+
             Destroy(gameObject);
-        }
+        }      
     }
 
     public void SetStat(NPCStats _stats)

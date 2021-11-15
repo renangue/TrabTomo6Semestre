@@ -18,12 +18,14 @@ public class ShopController : MonoBehaviour
     
     private NPC npc;
     private Wallet wallet;
+    private Shield shield;
 
     bool alreadyOpen = false;
 
     void Start()
     {
         healerButton.onClick.AddListener(delegate { BuyLife(lifeCost); });
+        buySupportButton.onClick.AddListener(delegate { BuySupport(supportCost); });
         closeButton.onClick.AddListener(delegate { CloseShop(); });
 
         lifeText.text = lifeCost.ToString();
@@ -31,6 +33,7 @@ public class ShopController : MonoBehaviour
 
         npc = FindObjectOfType<NPC>();
         wallet = FindObjectOfType<Wallet>();
+        shield = FindObjectOfType<Shield>();
 
     }
 
@@ -46,7 +49,12 @@ public class ShopController : MonoBehaviour
 
     void BuySupport(int cost)
     {
-
+        if (Wallet.cash >= cost)
+        {
+            wallet.UpdateCash(-cost);
+            shield.CreateShield();
+            shield.ReinforceShield();
+        }
     }
 
     void BuyLife(int cost)
