@@ -851,8 +851,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -34.526, y: -115.379395}
-  m_SizeDelta: {x: -69.0525, y: -1551.6912}
+  m_AnchoredPosition: {x: -34.526, y: -279}
+  m_SizeDelta: {x: -69.0525, y: -1217.451}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &337338674
 MonoBehaviour:
@@ -2104,7 +2104,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.0000076294, y: 0.00006925974}
+  m_AnchoredPosition: {x: -0.0000076294, y: 51}
   m_SizeDelta: {x: 0, y: 2714.6235}
   m_Pivot: {x: 0, y: 1}
 --- !u!1 &848434825
@@ -3540,8 +3540,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 18.771, y: 55.138}
-  m_SizeDelta: {x: 500.55, y: 1052.6562}
+  m_AnchoredPosition: {x: 18.771, y: 76.512}
+  m_SizeDelta: {x: 500.55, y: 1374}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1412712475
 MonoBehaviour:
@@ -3565,10 +3565,10 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: e870b5d794b28f64eab44b891a213b89, type: 3}
-    m_FontSize: 37
+    m_FontSize: 40
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 10
+    m_MinSize: 4
     m_MaxSize: 70
     m_Alignment: 3
     m_AlignByGeometry: 0
@@ -3581,7 +3581,8 @@ MonoBehaviour:
     Arena / Tower Defense Pack\r\nDesert - Low Poly Toon Battle Arena / Tower Defense
     Pack\r\nWinter Forest - Low Poly Toon Battle Arena / Tower Defense Pack\r\nDungeon
     - Low Poly Toon Battle Arena / Tower Defense Pack\r\nAurynSky\r\n \r\nFood Monsters
-    Character and Animation Pack 1\r\nCatgear Games\r\n \r\nFantasy medieval weapon\r\nCattleya\r\n"
+    Character and Animation Pack 1\r\nCatgear Games\r\n \r\nFantasy medieval weapon\r\nCattleya\r\n\nFREE
+    Skybox Extended Shader\r\nBOXOPHOBIC\r\n\n"
 --- !u!222 &1412712476
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3778,7 +3779,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1693971964}
   m_HandleRect: {fileID: 1693971963}
   m_Direction: 2
-  m_Value: 1
+  m_Value: 0.97330713
   m_Size: 0.2961737
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -4062,8 +4063,8 @@ RectTransform:
   m_Father: {fileID: 454273075}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0.7038263}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMin: {x: 0, y: 0.68503916}
+  m_AnchorMax: {x: 1, y: 0.98121285}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
