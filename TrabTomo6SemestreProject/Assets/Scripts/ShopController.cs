@@ -52,8 +52,8 @@ public class ShopController : MonoBehaviour
         if (Wallet.cash >= cost)
         {
             wallet.UpdateCash(-cost);
-            shield.CreateShield();
-            shield.ReinforceShield();
+            npc.forceField.CreateShield();
+            npc.forceField.ReinforceShield();
         }
     }
 

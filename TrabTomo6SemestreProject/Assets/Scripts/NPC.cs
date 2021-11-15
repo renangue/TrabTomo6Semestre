@@ -11,6 +11,7 @@ public class NPC : MonoBehaviour
     public GameObject bullet;
     public Animator animator;
     public Image lifeBar;
+    public Shield forceField;
     public GameObject gameOverScreen;
 
     private CoinSpawner coinSpawner;
@@ -21,11 +22,6 @@ public class NPC : MonoBehaviour
     private float life;
     private float currentLife;
     private Vector3 firstPos;
-
-    void Start()
-    {
-        
-    }
 
     private void OnEnable()
     {
@@ -111,8 +107,20 @@ public class NPC : MonoBehaviour
 
     public void Attack()
     {
-        target.GetComponent<NPC>().ReceiveDamageOrLife(-stats.damagePower);
+        if(gameObject.CompareTag("Enemy"))
+        {
+            if(target.GetComponent<NPC>().forceField.gameObject.activeSelf)
+                target.GetComponent<NPC>().forceField.ApplyDamage();
+            
+            else
+                target.GetComponent<NPC>().ReceiveDamageOrLife(-stats.damagePower);
 
+        }
+        else
+        {
+            target.GetComponent<NPC>().ReceiveDamageOrLife(-stats.damagePower);
+        }
+        
         print(name + " Atacou");
     }
 

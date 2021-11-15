@@ -19,6 +19,7 @@ public class NPCStats : ScriptableObject
     public float attackRange = 3f;
     public float fireRate = 1f;
     public float damagePower = 1f;
+    public int shieldForce = 3;
     public float bulletSpeed = 200f;
 
     public void Setup(NPCStats _stats)

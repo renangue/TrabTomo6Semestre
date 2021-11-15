@@ -108,6 +108,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df29b881c8b0fa5418fb8564428094fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  stats: {fileID: 11400000, guid: c5b4a90ef9d55564fbd430c63799d70d, type: 2}
+  support: {fileID: 0}
 --- !u!1 &5443840063741221103
 GameObject:
   m_ObjectHideFlags: 0
@@ -2711,6 +2713,7 @@ MonoBehaviour:
   bullet: {fileID: 661769143325968779, guid: f406006aaa72b85429e3c63c5f5fc5d8, type: 3}
   animator: {fileID: 8377850877741959539}
   lifeBar: {fileID: 4215714208852722067}
+  forceField: {fileID: 8953013462144154876}
   gameOverScreen: {fileID: 0}
   target: {fileID: 0}
 --- !u!114 &9182656770977135183

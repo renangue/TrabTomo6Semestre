@@ -19,7 +19,7 @@ public class UpgradeManager : MonoBehaviour
 
     public Button lifeButton;
 
-    public Button supportLifeButton;
+    public Button supportShieldButton;
 
     public Button closeButton;
     
@@ -63,6 +63,7 @@ public class UpgradeManager : MonoBehaviour
         SetDamage(1);
         SetFireRate(2);
         SetLife(3);
+        SetSupportShield(4);
 
         playerWallet = FindObjectsOfType<Wallet>();
     }
@@ -74,7 +75,7 @@ public class UpgradeManager : MonoBehaviour
         damagePowerButton.onClick.AddListener(delegate { UpgradeDamage(1); });
         fireRateButton.onClick.AddListener(delegate { UpgradeFireRate(2); });
         lifeButton.onClick.AddListener(delegate { UpgradeLife(3); });
-        supportLifeButton.onClick.AddListener(delegate { UpgradeLife(4); });
+        supportShieldButton.onClick.AddListener(delegate { UpgradeShield(4); });
 
         closeButton.onClick.AddListener(delegate { CloseWindow(); });
 
@@ -112,13 +113,13 @@ public class UpgradeManager : MonoBehaviour
         upgrade.nextBonusText.text = (stats.fireRate + upgrade.rankUpgrades[upgrade.actualRankUpgrade].bonus).ToString();
     }
 
-    //public void SetSupportLife(int index)
-    //{
-    //    Upgrade upgrade = upgradeTree[index];
-    //    upgrade.actualBonusText.text = stats.fireRate.ToString();
-    //    upgrade.costText.text = upgrade.rankUpgrades[upgrade.actualRankUpgrade].cost.ToString();
-    //    upgrade.nextBonusText.text = (stats.fireRate + upgrade.rankUpgrades[upgrade.actualRankUpgrade].bonus).ToString();
-    //}
+    public void SetSupportShield(int index)
+    {
+        Upgrade upgrade = upgradeTree[index];
+        upgrade.actualBonusText.text = stats.shieldForce.ToString();
+        upgrade.costText.text = upgrade.rankUpgrades[upgrade.actualRankUpgrade].cost.ToString();
+        upgrade.nextBonusText.text = (stats.shieldForce + upgrade.rankUpgrades[upgrade.actualRankUpgrade].bonus).ToString();
+    }
 
     void UpgradeLife(int index)
     {
@@ -220,6 +221,31 @@ public class UpgradeManager : MonoBehaviour
         }
     }
 
+    void UpgradeShield(int index)
+    {
+        Upgrade upgrade = upgradeTree[index];
+        if (upgrade.actualRankUpgrade < upgrade.rankUpgrades.Length)
+        {
+            if (upgrade.rankUpgrades[upgrade.actualRankUpgrade].cost <= Wallet.cash)
+            {
+                IncreaseSupportField(upgrade.rankUpgrades[upgrade.actualRankUpgrade].cost, upgrade.rankUpgrades[upgrade.actualRankUpgrade].bonus);
+                upgrade.actualRankUpgrade++;
+                if (upgrade.actualRankUpgrade < upgrade.rankUpgrades.Length)
+                {
+                    upgrade.actualBonusText.text = stats.shieldForce.ToString();
+                    upgrade.costText.text = upgrade.rankUpgrades[upgrade.actualRankUpgrade].cost.ToString();
+                    upgrade.nextBonusText.text = (stats.shieldForce + upgrade.rankUpgrades[upgrade.actualRankUpgrade].bonus).ToString();
+                }
+                else
+                {
+                    upgrade.actualBonusText.text = stats.shieldForce.ToString();
+                    upgrade.costText.text = "";
+                    upgrade.nextBonusText.text = "";
+                }
+            }
+        }
+    }
+
     void IncreaseDamage(int cost, float bonus)
     {
         stats.damagePower += bonus;
@@ -244,6 +270,13 @@ public class UpgradeManager : MonoBehaviour
     void IncreaseLife(int cost, int bonus)
     {
         stats.life += bonus;
+
+        SpentCash(-cost);
+    }
+
+    void IncreaseSupportField(int cost, int bonus)
+    {
+        stats.shieldForce += bonus;
 
         SpentCash(-cost);
     }

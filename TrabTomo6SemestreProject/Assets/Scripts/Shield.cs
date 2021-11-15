@@ -4,14 +4,16 @@ using UnityEngine;
 
 public class Shield : MonoBehaviour
 {
+    public NPCStats stats;
     public GameObject support;
 
-    public int shieldPoints = 3;
+    int shieldPoints;
 
     int currentShieldPoints;
 
     void Start()
     {
+        shieldPoints = stats.shieldForce;
         currentShieldPoints = shieldPoints;
     }
 
@@ -19,7 +21,7 @@ public class Shield : MonoBehaviour
     {
         if(other.CompareTag("Bullet"))
         {
-            --currentShieldPoints;
+            ApplyDamage();
 
             Destroy(other.gameObject);
         }
@@ -34,6 +36,13 @@ public class Shield : MonoBehaviour
         }
     }
 
+    public void ApplyDamage()
+    {
+        --currentShieldPoints;
+
+        print("escudo");
+    }
+
     public void CreateShield()
     {
         gameObject.SetActive(true);
@@ -43,10 +52,5 @@ public class Shield : MonoBehaviour
     public void ReinforceShield()
     {
         currentShieldPoints = shieldPoints;
-    }
-
-    public void UpgradeShield(int amount)
-    {
-        shieldPoints += amount;
     }
 }
