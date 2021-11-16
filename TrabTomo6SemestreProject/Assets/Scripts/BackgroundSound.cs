@@ -12,7 +12,7 @@ public class BackgroundSound : MonoBehaviour
 
     void Start()
     {
-        AudioManager.BGSVolume = 1;
+        AudioManager.BGSVolume = 0.14f;
 
         AudioManager.PlayBGS(music, loop, persistent);
         
