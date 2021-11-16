@@ -14,6 +14,10 @@ public class NPC : MonoBehaviour
     public Shield forceField;
     public GameObject gameOverScreen;
 
+    public AudioClip[] attackSFX;
+    public AudioClip[] damageSFX;
+
+
     private CoinSpawner coinSpawner;
    
     [HideInInspector]
@@ -40,8 +44,11 @@ public class NPC : MonoBehaviour
             combat.children.Add(new BTMoveToEnemy());
 
             if (stats.type == NPCStats.Type.RANGED)
+            {
                 combat.children.Add(new BTAttackEnemy());
-
+                Debug.Log(name + " ranged");
+            }
+                
             else
             {
                 combat.children.Add(new BTMeleeAttack());
@@ -97,6 +104,9 @@ public class NPC : MonoBehaviour
             if (currentLife <= 0)
                 coinSpawner.Spawn();
         }
+
+        if(damageSFX.Length != 0)
+            AudioManager.PlaySFX(GetRandomClip(damageSFX));
     }
     
     public void Heal()
@@ -120,8 +130,15 @@ public class NPC : MonoBehaviour
         {
             target.GetComponent<NPC>().ReceiveDamageOrLife(-stats.damagePower);
         }
+
+        AudioManager.PlaySFX(GetRandomClip(attackSFX));
         
         print(name + " Atacou");
+    }
+
+    public AudioClip GetRandomClip(AudioClip[] clips)
+    {
+        return clips[UnityEngine.Random.Range(0, clips.Length)];
     }
 
     void CheckLife()

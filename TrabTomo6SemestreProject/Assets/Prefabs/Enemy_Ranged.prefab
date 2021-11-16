@@ -330,11 +330,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5416a9f8fa6ff4449bc436cbe4eb06de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dontDestroy: 0
   stats: {fileID: 11400000, guid: ed195c404e944454296f19692da86992, type: 2}
   muzzle: {fileID: 218531205}
   bullet: {fileID: 661769143325968779, guid: 58075072f68612048acd1866f2be5fb1, type: 3}
   animator: {fileID: 8962427287294944300}
   lifeBar: {fileID: 776377644}
+  forceField: {fileID: 0}
+  gameOverScreen: {fileID: 0}
+  attackSFX:
+  - {fileID: 8300000, guid: 7ef8262968b325448ad7e8456c06588b, type: 3}
+  damageSFX: []
   target: {fileID: 0}
 --- !u!114 &4789596948205999409
 MonoBehaviour:

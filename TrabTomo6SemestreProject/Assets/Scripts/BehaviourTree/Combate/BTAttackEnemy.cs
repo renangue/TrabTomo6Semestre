@@ -23,6 +23,8 @@ public class BTAttackEnemy : BTNode
             GameObject clone = GameObject.Instantiate(npc.bullet, npc.muzzle.position, rotation);
             clone.GetComponent<Rigidbody>().AddForce(npc.transform.forward * npc.stats.bulletSpeed);
 
+            AudioManager.PlaySFX(npc.GetRandomClip(npc.attackSFX));
+
             Debug.Log( bt.name + " Atirou");
 
             yield return new WaitForSeconds(npc.stats.fireRate);

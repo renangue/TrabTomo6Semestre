@@ -2715,6 +2715,13 @@ MonoBehaviour:
   lifeBar: {fileID: 4215714208852722067}
   forceField: {fileID: 8953013462144154876}
   gameOverScreen: {fileID: 0}
+  attackSFX:
+  - {fileID: 8300000, guid: c5d0e258c84ff5a46aeb181bb13a0291, type: 3}
+  damageSFX:
+  - {fileID: 8300000, guid: 615851456c6c0d04991b1ac357af3090, type: 3}
+  - {fileID: 8300000, guid: e961d5b060fdd1f4f8e447793d787ed0, type: 3}
+  - {fileID: 8300000, guid: 5429d27adfdc16149b49809c8e53c241, type: 3}
+  - {fileID: 8300000, guid: f84bd95005cc1d5488bf36c417f74b67, type: 3}
   target: {fileID: 0}
 --- !u!114 &9182656770977135183
 MonoBehaviour:

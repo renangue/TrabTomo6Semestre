@@ -75,7 +75,7 @@ public class CanvasGroupFader : MonoBehaviour
         {
             yield return null;
 
-            currentFadeTime += Time.deltaTime;
+            currentFadeTime += Time.unscaledDeltaTime;
             if (currentFadeTime > fadeTime)
             {
                 currentFadeTime = fadeTime;
@@ -122,7 +122,7 @@ public class CanvasGroupFader : MonoBehaviour
         {
             yield return null;
 
-            currentFadeTime += Time.deltaTime;
+            currentFadeTime += Time.unscaledDeltaTime;
             if (currentFadeTime > fadeTime)
             {
                 currentFadeTime = fadeTime;

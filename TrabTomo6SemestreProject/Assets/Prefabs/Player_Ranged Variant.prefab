@@ -1756,6 +1756,14 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 7315916180793769629}
     - target: {fileID: 9182656770977135180, guid: 223ed752f608c4f4b87a68f3643b0297, type: 3}
+      propertyPath: attackSFX
+      value: 
+      objectReference: {fileID: 8300000, guid: d8792c70ec8e81f47a259c10988e056d, type: 3}
+    - target: {fileID: 9182656770977135180, guid: 223ed752f608c4f4b87a68f3643b0297, type: 3}
+      propertyPath: damageSFX
+      value: 
+      objectReference: {fileID: 8300000, guid: 1f19d278cb2e60b44bbbc18355a20b75, type: 3}
+    - target: {fileID: 9182656770977135180, guid: 223ed752f608c4f4b87a68f3643b0297, type: 3}
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
@@ -1763,6 +1771,34 @@ PrefabInstance:
       propertyPath: dontDestroy
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 9182656770977135180, guid: 223ed752f608c4f4b87a68f3643b0297, type: 3}
+      propertyPath: attackSFX.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 9182656770977135180, guid: 223ed752f608c4f4b87a68f3643b0297, type: 3}
+      propertyPath: damageSFX.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 9182656770977135180, guid: 223ed752f608c4f4b87a68f3643b0297, type: 3}
+      propertyPath: attackSFX.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: d8792c70ec8e81f47a259c10988e056d, type: 3}
+    - target: {fileID: 9182656770977135180, guid: 223ed752f608c4f4b87a68f3643b0297, type: 3}
+      propertyPath: attackSFX.Array.data[1]
+      value: 
+      objectReference: {fileID: 8300000, guid: 012f1d30a15954343a4056e5b664ae1c, type: 3}
+    - target: {fileID: 9182656770977135180, guid: 223ed752f608c4f4b87a68f3643b0297, type: 3}
+      propertyPath: damageSFX.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: 1f19d278cb2e60b44bbbc18355a20b75, type: 3}
+    - target: {fileID: 9182656770977135180, guid: 223ed752f608c4f4b87a68f3643b0297, type: 3}
+      propertyPath: damageSFX.Array.data[1]
+      value: 
+      objectReference: {fileID: 8300000, guid: a4879148474d2b94c9ffcbb29aa833ef, type: 3}
+    - target: {fileID: 9182656770977135180, guid: 223ed752f608c4f4b87a68f3643b0297, type: 3}
+      propertyPath: damageSFX.Array.data[2]
+      value: 
+      objectReference: {fileID: 8300000, guid: 2b7257b8da3eecb429ae727df5566758, type: 3}
     - target: {fileID: 9182656770977135181, guid: 223ed752f608c4f4b87a68f3643b0297, type: 3}
       propertyPath: m_RootOrder
       value: 0
