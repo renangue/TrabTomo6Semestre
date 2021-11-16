@@ -8,9 +8,15 @@ public class SceneLoader : MonoBehaviour
     [SerializeField]
     private GameObject loadingScreen;
 
+    public static int level = 1;
+
     public void LoadNextScene()
     {
         StartCoroutine(LoadSceneAsync());
+
+        ++level;
+
+        print(level);
     }
 
     public void LoadScene(string sceneName)

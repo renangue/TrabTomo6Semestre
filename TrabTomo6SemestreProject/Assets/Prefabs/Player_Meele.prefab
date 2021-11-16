@@ -2715,6 +2715,9 @@ MonoBehaviour:
   lifeBar: {fileID: 4215714208852722067}
   forceField: {fileID: 8953013462144154876}
   gameOverScreen: {fileID: 0}
+  winScreen: {fileID: 0}
+  deathSFX: {fileID: 8300000, guid: bb3023468b3d7aa44953b121d2374a8e, type: 3}
+  winSFX: {fileID: 8300000, guid: 3d017c936ae92d64e817cd48373b9f08, type: 3}
   attackSFX:
   - {fileID: 8300000, guid: c5d0e258c84ff5a46aeb181bb13a0291, type: 3}
   damageSFX:

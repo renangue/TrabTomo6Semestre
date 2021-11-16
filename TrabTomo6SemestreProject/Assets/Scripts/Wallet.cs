@@ -24,4 +24,9 @@ public class Wallet : MonoBehaviour
     {
         cash += amount;
     }
+
+    public void ResetCash()
+    {
+        cash = 20;
+    }
 }

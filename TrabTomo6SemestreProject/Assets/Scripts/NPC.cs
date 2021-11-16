@@ -13,12 +13,12 @@ public class NPC : MonoBehaviour
     public Image lifeBar;
     public Shield forceField;
     public GameObject gameOverScreen;
+    public GameObject winScreen;
 
     public AudioClip deathSFX;
+    public AudioClip winSFX;
     public AudioClip[] attackSFX;
     public AudioClip[] damageSFX;
-
-
 
     private CoinSpawner coinSpawner;
    
@@ -86,6 +86,13 @@ public class NPC : MonoBehaviour
     private void Update()
     {
         CheckLife();
+
+        if(SceneLoader.level > 20)
+        {
+            winScreen.SetActive(true);
+
+            AudioManager.PlaySFX(winSFX);
+        }
     }
 
     public void DontDestroy()
@@ -148,6 +155,8 @@ public class NPC : MonoBehaviour
         if (currentLife <= 0)
         {
             gameObject.SetActive(false);
+
+            AudioManager.PlaySFX(deathSFX);
 
             if (gameObject.CompareTag("Player"))
             {

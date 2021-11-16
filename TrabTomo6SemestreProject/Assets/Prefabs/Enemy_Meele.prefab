@@ -341,6 +341,7 @@ MonoBehaviour:
   lifeBar: {fileID: 1234727275}
   forceField: {fileID: 0}
   gameOverScreen: {fileID: 0}
+  deathSFX: {fileID: 8300000, guid: 021f3b62eba3a0e4c8d1905b32c92387, type: 3}
   attackSFX:
   - {fileID: 8300000, guid: 7ef8262968b325448ad7e8456c06588b, type: 3}
   damageSFX: []
