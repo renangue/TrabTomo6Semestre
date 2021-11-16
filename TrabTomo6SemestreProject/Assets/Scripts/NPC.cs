@@ -100,6 +100,7 @@ public class NPC : MonoBehaviour
         DontDestroyOnLoad(gameObject);     
     }
 
+
     public void ReceiveDamageOrLife(float amount)
     {
         currentLife += amount;
@@ -157,6 +158,8 @@ public class NPC : MonoBehaviour
             gameObject.SetActive(false);
 
             AudioManager.PlaySFX(deathSFX);
+
+            SceneLoader.level = 1;
 
             if (gameObject.CompareTag("Player"))
             {
