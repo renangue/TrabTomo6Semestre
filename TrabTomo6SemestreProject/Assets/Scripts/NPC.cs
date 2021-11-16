@@ -14,8 +14,10 @@ public class NPC : MonoBehaviour
     public Shield forceField;
     public GameObject gameOverScreen;
 
+    public AudioClip deathSFX;
     public AudioClip[] attackSFX;
     public AudioClip[] damageSFX;
+
 
 
     private CoinSpawner coinSpawner;

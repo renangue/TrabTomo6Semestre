@@ -14,6 +14,8 @@ public class BackgroundSound : MonoBehaviour
     {
         AudioManager.BGSVolume = 0.14f;
 
+        AudioManager.SFXVolume = 0.5f;
+
         AudioManager.PlayBGS(music, loop, persistent);
         
     }
