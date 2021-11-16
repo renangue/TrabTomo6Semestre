@@ -19,6 +19,11 @@ public class SceneLoader : MonoBehaviour
         print(level);
     }
 
+    public void ResetLevel()
+    {
+        level = 1;
+    }
+
     public void LoadScene(string sceneName)
     {
         StartCoroutine(LoadSceneAsync(sceneName));
