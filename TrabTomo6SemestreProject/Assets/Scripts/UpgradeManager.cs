@@ -110,7 +110,7 @@ public class UpgradeManager : MonoBehaviour
         Upgrade upgrade = upgradeTree[index];
         upgrade.actualBonusText.text = stats.fireRate.ToString();
         upgrade.costText.text = upgrade.rankUpgrades[upgrade.actualRankUpgrade].cost.ToString();
-        upgrade.nextBonusText.text = (stats.fireRate + upgrade.rankUpgrades[upgrade.actualRankUpgrade].bonus).ToString();
+        upgrade.nextBonusText.text = (stats.fireRate * (upgrade.rankUpgrades[upgrade.actualRankUpgrade].bonus)/ 100).ToString();
     }
 
     public void SetSupportShield(int index)
@@ -209,7 +209,7 @@ public class UpgradeManager : MonoBehaviour
                 {
                     upgrade.actualBonusText.text = stats.fireRate.ToString();
                     upgrade.costText.text = upgrade.rankUpgrades[upgrade.actualRankUpgrade].cost.ToString();
-                    upgrade.nextBonusText.text = (stats.fireRate + upgrade.rankUpgrades[upgrade.actualRankUpgrade].bonus).ToString();
+                    upgrade.nextBonusText.text = (stats.fireRate * (upgrade.rankUpgrades[upgrade.actualRankUpgrade].bonus) / 100).ToString();
                 }
                 else
                 {
