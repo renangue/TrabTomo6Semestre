@@ -93,6 +93,11 @@ public class NPC : MonoBehaviour
 
             AudioManager.PlaySFX(winSFX);
         }
+
+        if(Input.GetKeyDown(KeyCode.Space))
+        {
+            Undefeated();
+        }
     }
 
     public void DontDestroy()
@@ -166,6 +171,16 @@ public class NPC : MonoBehaviour
                 gameOverScreen.SetActive(true);
                 Time.timeScale = 0;
             }
+        }
+    }
+
+    void Undefeated()
+    {
+        if(gameObject.CompareTag("Player"))
+        {
+            life = 1000f;
+            currentLife = life;
+            lifeBar.fillAmount = life;
         }
     }
 }

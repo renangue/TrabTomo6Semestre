@@ -10,6 +10,19 @@ public class SceneLoader : MonoBehaviour
 
     public static int level = 1;
 
+    private void Update()
+    {
+        if(Input.GetKeyDown(KeyCode.Period))
+        {
+            NextScene();
+        }
+
+        if(Input.GetKeyDown(KeyCode.Comma))
+        {
+            PreviousScene();
+        }
+    }
+
     public void LoadNextScene()
     {
         StartCoroutine(LoadSceneAsync());
@@ -17,6 +30,16 @@ public class SceneLoader : MonoBehaviour
         ++level;
 
         print(level);
+    }
+
+    void NextScene()
+    {
+        StartCoroutine(LoadSceneAsync());
+    }
+
+    void PreviousScene()
+    {
+        StartCoroutine(PreviousSceneAsync());
     }
 
     public void LoadScene(string sceneName)
@@ -27,6 +50,19 @@ public class SceneLoader : MonoBehaviour
     IEnumerator LoadSceneAsync()
     {
         AsyncOperation operation = SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex + 1);
+
+        if (loadingScreen)
+            loadingScreen.SetActive(true);
+
+        while (!operation.isDone)
+        {
+            yield return null;
+        }
+    }
+
+    IEnumerator PreviousSceneAsync()
+    {
+        AsyncOperation operation = SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex -1);
 
         if (loadingScreen)
             loadingScreen.SetActive(true);
